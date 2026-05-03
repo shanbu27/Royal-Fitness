@@ -1,0 +1,1538 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0f0f0f;
+    color: #fff;
+    line-height: 1.6;
+}
+
+/* Header & Nav */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #ff4d05; /* Accent Color */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.logo img {
+    height: 50px;       /* Adjust this number to make the logo smaller or larger */
+    width: auto;        /* Keeps the image from stretching */
+    margin-right: 10px; /* Space between logo and "Royal Fitness" text */
+    object-fit: contain;
+}
+.logo span {
+    color: #ff4d05;
+    margin-left: 5px;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+}
+
+.navbar ul li {
+    margin-left: 30px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+
+.navbar ul li a:hover, .navbar ul li a.active {
+    color: #ff4d05;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('gym-bg.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.hero-content h1 span {
+    color: #ff4d05;
+}
+
+.hero-content p {
+    max-width: 500px;
+    margin: 20px 0;
+    color: #ccc;
+}
+
+.btn-main {
+    padding: 12px 30px;
+    background: #ff4d05;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.btn-main:hover {
+    background: #e64500;
+    transform: scale(1.05);
+}
+
+/* Features Section */
+.features {
+    padding: 80px 8%;
+    background: #1a1a1a;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.feature-box {
+    background: #252525;
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px;
+    transition: 0.3s;
+    border-bottom: 3px solid transparent;
+}
+
+.feature-box:hover {
+    transform: translateY(-10px);
+    border-color: #ff4d05;
+}
+
+.feature-box i {
+    font-size: 3rem;
+    color: #ff4d05;
+    margin-bottom: 15px;
+}
+
+.feature-box h2 {
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* Footer */
+.footer {
+    padding: 40px 8%;
+    text-align: center;
+    background: #000;
+}
+
+.social-links {
+    margin-bottom: 20px;
+}
+
+.social-links .ico {
+    font-size: 1.8rem;
+    color: #fff;
+    margin: 0 15px;
+    transition: 0.3s;
+}
+
+.social-links .ico:hover {
+    color: #ff4d05;
+}
+
+/*service page 
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Header & Navigation */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+    background: rgba(0, 0, 0, 0.85);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #ff4d05;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.logo span {
+    color: #ff4d05;
+    margin-left: 5px;
+}
+
+.logo img {
+    height: 45px; /* Fixed big image issue */
+    width: auto;
+    margin-right: 10px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover, .nav-links li a.active {
+    color: #ff4d05;
+}
+
+/* Video Background */
+.video-bg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.fullscreen-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Darkens video for readability */
+}
+
+/* Service Page Content */
+.service-container {
+    padding: 150px 8% 50px; /* Space for fixed header */
+    min-height: 80vh;
+    text-align: center;
+}
+
+.goal-title {
+    font-size: 3rem;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+.goal-title span {
+    color: #ff4d05;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px); /* Modern Glass Effect */
+    padding: 40px 25px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.4s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 77, 5, 0.2);
+    border-color: #ff4d05;
+}
+
+.card-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.card-link {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* Footer Section */
+.footer-section {
+    padding: 50px 8% 20px;
+    background: #000;
+    text-align: center;
+}
+
+.social-icons {
+    margin-bottom: 20px;
+}
+
+.social-icons .ico {
+    font-size: 2rem;
+    color: #fff;
+    margin: 0 15px;
+    transition: 0.3s;
+}
+
+.social-icons .ico:hover {
+    color: #ff4d05;
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+    color: #777;
+}
+.services-container {
+    padding: 120px 8% 60px;
+    text-align: center;
+}
+
+.services-header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.services-header h1 span {
+    color: #ff4d05;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.s-card {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 40px 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.s-card:hover {
+    background: rgba(255, 77, 5, 0.05);
+    border-color: #ff4d05;
+    transform: translateY(-5px);
+}
+
+.s-card i {
+    font-size: 4rem;
+    color: #ff4d05;
+    margin-bottom: 20px;
+}
+
+.s-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.s-card p {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.s-btn {
+    padding: 10px 20px;
+    border: 2px solid #ff4d05;
+    color: #ff4d05;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.s-btn:hover {
+    background: #ff4d05;
+    color: #fff;
+}
+/* Contact Page Specific Styling */
+.contact-container {
+    padding: 150px 8% 50px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-header h4 {
+    color: #ff4d05;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.contact-header h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+.contact-header h1 span {
+    color: #ff4d05;
+}
+
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.input-group {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.contact-form input, 
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #444;
+    color: #fff;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.contact-form input:focus, 
+.contact-form textarea:focus {
+    border-color: #ff4d05;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.send-btn {
+    width: 100%;
+    padding: 15px;
+    background: #ff4d05;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.send-btn:hover {
+    background: #e64500;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 77, 5, 0.3);
+}
+
+/* Responsiveness for Mobile */
+@media (max-width: 768px) {
+    .input-group {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+/* Pricing Section Styling */
+.pricing-container {
+    padding: 150px 8% 80px;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('price-bg.jpg') no-repeat center center/cover;
+    min-height: 100vh;
+}
+
+.price-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.price-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 50px 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 320px;
+    transition: 0.4s ease;
+    position: relative;
+}
+
+/* Make the Pro card stand out */
+.price-card.featured {
+    border: 2px solid #ff4d05;
+    transform: scale(1.1);
+    background: rgba(255, 77, 5, 0.08);
+}
+
+.badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff4d05;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.price-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.cost {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ff4d05;
+    margin-bottom: 30px;
+}
+
+.cost span {
+    font-size: 1rem;
+    color: #ccc;
+    font-weight: 400;
+}
+
+.price-card ul {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.price-card ul li {
+    margin-bottom: 15px;
+    color: #ddd;
+    display: flex;
+    align-items: center;
+}
+
+.price-card ul li i {
+    color: #ff4d05;
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.join-btn {
+    display: inline-block;
+    padding: 12px 35px;
+    background: transparent;
+    border: 2px solid #ff4d05;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.price-card:hover .join-btn, 
+.price-card.featured .join-btn {
+    background: #ff4d05;
+}
+
+.price-card:hover {
+    transform: translateY(-10px);
+}
+
+.price-card.featured:hover {
+    transform: scale(1.1) translateY(-10px);
+}
+/* Schedule Section Styling */
+.schedule-page {
+    background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('gym-bg.jpg') no-repeat center center/cover;
+    min-height: 100vh;
+}
+
+.schedule-container {
+    padding: 150px 8% 80px;
+    text-align: center;
+}
+
+.schedule-subtitle {
+    color: #ccc;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+/* Table Design */
+.table-wrapper {
+    overflow-x: auto; /* Makes table scrollable on small phones */
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gym-schedule {
+    width: 100%;
+    border-collapse: collapse;
+    color: #fff;
+}
+
+.gym-schedule th {
+    background: #ff4d05;
+    padding: 20px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+.gym-schedule td {
+    padding: 30px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.gym-schedule tr:hover td {
+    background: rgba(255, 77, 5, 0.1);
+}
+
+/* Time and Activity Styling */
+.time {
+    display: block;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.activity {
+    display: block;
+    font-size: 0.8rem;
+    color: #ff4d05;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+/* Closed Cell Styling */
+.closed-day {
+    background: #333 !important;
+}
+
+.closed-text {
+    background: rgba(0, 0, 0, 0.4);
+    color: #777;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.closed-text i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+/* Login Page Layout */
+.login-page {
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('gym-bg.jpg') no-repeat center center/cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px; /* Accounts for header */
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.login-header h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.login-header h2 span {
+    color: #ff4d05;
+}
+
+.login-header p {
+    color: #ccc;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+/* Input Styles */
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-box i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ff4d05;
+    font-size: 1.2rem;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    background: rgba(0,0,0,0.4);
+    border: 1px solid #444;
+    border-radius: 10px;
+    color: #fff;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-box input:focus {
+    border-color: #ff4d05;
+}
+
+/* Options (Forgot Password / Remember Me) */
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    margin-bottom: 25px;
+}
+
+.login-options a {
+    color: #ff4d05;
+    text-decoration: none;
+}
+
+/* Login Button */
+.login-btn {
+    width: 100%;
+    padding: 15px;
+    background: #ff4d05;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.login-btn:hover {
+    background: #e64500;
+    box-shadow: 0 5px 15px rgba(255, 77, 5, 0.4);
+}
+
+.register-link {
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.register-link a {
+    color: #ff4d05;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Signup Page Styling */
+/* Signup Page Theme */
+.signup-page {
+    background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('gym-bg.jpg') no-repeat center center/cover;
+}
+
+.signup-wrapper {
+    padding: 120px 20px 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.signup-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    width: 100%;
+    max-width: 700px; /* Wider for professional rows */
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.signup-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.signup-header h1 span {
+    color: #ff4d05;
+}
+
+/* Sections */
+.form-section {
+    margin-bottom: 25px;
+}
+
+.form-section h3 {
+    color: #ff4d05;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 77, 5, 0.2);
+    padding-bottom: 5px;
+}
+
+/* Layout Rows */
+.row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Good for mobile */
+}
+
+.input-group {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.85rem;
+    color: #ccc;
+    margin-bottom: 5px;
+}
+
+/* Inputs */
+.signup-form input, .select-field {
+    width: 100%;
+    padding: 12px;
+    background: rgba(0,0,0,0.4);
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: #fff;
+    outline: none;
+    transition: 0.3s;
+}
+
+.signup-form input:focus {
+    border-color: #ff4d05;
+}
+
+/* Button */
+.signup-btn {
+    width: 100%;
+    padding: 15px;
+    background: #ff4d05;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.signup-btn:hover {
+    background: #e64500;
+    box-shadow: 0 5px 15px rgba(255, 77, 5, 0.4);
+}
+
+.login-redirect {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-redirect a {
+    color: #ff4d05;
+    text-decoration: none;
+    font-weight: bold;
+}
+/* Styling for the links that switch between Login and Signup */
+.register-link, .login-link {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.register-link a, .login-link a {
+    color: #ff4d05; /* Your Royal Fitness Orange */
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 5px;
+    transition: 0.3s;
+}
+
+.register-link a:hover, .login-link a:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+
+/* Ensure the header logo is consistent across both */
+.nav-img {
+    height: 45px;
+    width: auto;
+    margin-right: 10px;
+}
+/* Bodybuilding Page Specifics */
+.bodybuilding-page {
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 2;
+    padding: 120px 8% 60px;
+    text-align: center;
+}
+
+.target-title {
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.target-title span {
+    color: #ff4d05;
+}
+
+.target-subtitle {
+    color: #ccc;
+    margin-bottom: 50px;
+    font-style: italic;
+}
+
+/* Grid Layout */
+.target-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Styling for the Bodybuilding Page */
+.bb-page {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Video Background */
+.video-bg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.fullscreen-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75); /* Darkens the video */
+}
+
+/* Main Container */
+.bb-container {
+    padding: 120px 10% 50px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.bb-header h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.bb-header h1 span {
+    color: #ff4d05;
+}
+
+.bb-header p {
+    color: #ccc;
+    margin-bottom: 50px;
+}
+
+/* Grid Layout for Muscle Cards */
+.muscle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* Individual Card Styling */
+.muscle-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px 20px;
+    border-radius: 15px;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.muscle-card:hover {
+    background: #ff4d05;
+    transform: translateY(-10px);
+    border-color: #ff4d05;
+}
+
+.m-icon {
+    font-size: 4rem;
+    color: #ff4d05;
+    margin-bottom: 15px;
+    transition: 0.4s;
+}
+
+.muscle-card:hover .m-icon, 
+.muscle-card:hover .m-link {
+    color: #fff;
+}
+
+.muscle-card h3 {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+.m-link {
+    font-size: 0.8rem;
+    color: #ff4d05;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Footer Section */
+.bb-footer {
+    text-align: center;
+    padding: 40px;
+    background: #000;
+    position: relative;
+    z-index: 1;
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    color: #ff4d05;
+}
+/* Coach Page Styles */
+.coach-page-body {
+    background-color: #0b0b0b;
+    color: white;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.coach-section {
+    padding: 120px 8% 50px;
+}
+
+.main-title {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 50px;
+}
+
+.main-title span {
+    color: #ff4d05;
+}
+
+/* Layout for Mycoach */
+.Mycoach {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+/* The Card Container */
+.trainer-card {
+    display: flex;
+    background: #161616;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #333;
+    transition: 0.4s ease;
+}
+
+.trainer-card:hover {
+    border-color: #ff4d05;
+    transform: translateY(-5px);
+}
+
+/* Alternate direction for every second card */
+.trainer-card.reverse {
+    flex-direction: row-reverse;
+}
+
+.coach-image {
+    flex: 1;
+    min-width: 350px;
+}
+
+.coach-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.About_coach {
+    flex: 1.5;
+    padding: 40px;
+}
+
+.About_coach h2 {
+    font-size: 2.2rem;
+    color: #ff4d05;
+    margin: 10px 0;
+}
+
+.rank {
+    font-size: 1rem;
+    color: #aaa;
+    font-weight: bold;
+}
+
+.quote {
+    color: #ff4d05;
+    font-size: 1.1rem;
+    border-left: 3px solid #ff4d05;
+    padding-left: 15px;
+}
+
+.why-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.why-list li {
+    margin-bottom: 10px;
+    color: #ddd;
+}
+
+.why-list li::before {
+    content: "✔️";
+    margin-right: 10px;
+    color: #ff4d05;
+}
+
+/* Button Styling */
+.train-btn {
+    padding: 12px 30px;
+    background: transparent;
+    color: white;
+    border: 2px solid #ff4d05;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.train-btn:hover {
+    background: #ff4d05;
+    box-shadow: 0 0 15px #ff4d05;
+}
+
+/* Footer & Socials */
+.social {
+    text-align: center;
+    padding: 20px;
+}
+
+.ico {
+    font-size: 2rem;
+    color: white;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+.ico:hover {
+    color: #ff4d05;
+}
+
+.copy {
+    text-align: center;
+    padding-bottom: 30px;
+    color: #666;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 850px) {
+    .trainer-card, .trainer-card.reverse {
+        flex-direction: column;
+    }
+    .coach-image {
+        min-width: 100%;
+        height: 300px;
+    }
+}
+/* Diet Page Specific Styles */
+.diet-page {
+    background-color: #0d0d0d;
+    color: #fff;
+}
+
+.diet-container {
+    padding: 120px 10% 50px;
+}
+
+.diet-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.diet-header h1 {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+}
+
+.diet-header h1 span {
+    color: #ff4d05;
+}
+
+/* Macro Cards */
+.macro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 80px;
+}
+
+.macro-card {
+    background: #1a1a1a;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 15px;
+    border-bottom: 4px solid #333;
+    transition: 0.3s;
+}
+
+.macro-card:hover {
+    border-bottom-color: #ff4d05;
+    transform: translateY(-10px);
+}
+
+.macro-card i {
+    font-size: 3rem;
+    color: #ff4d05;
+    margin-bottom: 15px;
+}
+
+/* Meal Plan Styling */
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+.section-title span {
+    color: #ff4d05;
+}
+
+.meal-plan-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.meal-card {
+    background: #161616;
+    padding: 25px;
+    border-left: 5px solid #ff4d05;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.meal-time {
+    background: #ff4d05;
+    padding: 5px 15px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+.calories {
+    color: #ff4d05;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace; /* Digital look */
+}
+
+/* CTA Section */
+.diet-cta {
+    margin-top: 80px;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('gym-food.jpg'); /* Optional background img */
+    background-size: cover;
+    padding: 60px;
+    text-align: center;
+    border-radius: 15px;
+    border: 1px solid #333;
+}
+
+.diet-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 35px;
+    background: #ff4d05;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.diet-btn:hover {
+    background: white;
+    color: #ff4d05;
+    box-shadow: 0 0 20px #ff4d05;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .meal-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+}
+/* Cardio Page Styles */
+.cardio-page {
+    background: #080808;
+    color: #fff;
+}
+
+.cardio-container {
+    padding: 120px 10% 80px;
+}
+
+.cardio-header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.cardio-header h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    font-style: italic; /* Gives it a sense of speed */
+}
+
+.cardio-header h1 span {
+    color: #ff4d05;
+}
+
+/* Focus Section */
+.focus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 100px;
+}
+
+.focus-box {
+    background: #111;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid #222;
+    transition: 0.4s;
+}
+
+.focus-box:hover {
+    border-color: #ff4d05;
+    background: #161616;
+    transform: scale(1.05);
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 77, 5, 0.1);
+    color: #ff4d05;
+    font-size: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+/* Program List */
+.sub-heading {
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+
+.sub-heading span {
+    color: #ff4d05;
+}
+
+.program-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.program-card {
+    background: #111;
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.program-card:hover {
+    background: #1a1a1a;
+    padding-left: 40px; /* Slight slide effect */
+}
+
+.prog-info h3 {
+    margin-bottom: 5px;
+}
+
+.prog-info p {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* Difficulty Bars */
+.prog-difficulty {
+    display: flex;
+    gap: 5px;
+}
+
+.bar {
+    width: 30px;
+    height: 8px;
+    background: #333;
+    border-radius: 2px;
+}
+
+.bar.full {
+    background: #ff4d05;
+}
+
+/* Start Button */
+.start-btn {
+    padding: 10px 25px;
+    background: transparent;
+    color: #fff;
+    border: 2px solid #ff4d05;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.start-btn:hover {
+    background: #ff4d05;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .program-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+}
