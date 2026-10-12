@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="stu.css">
+    <title>Our Coaches | Royal Fitness</title>
+
+    <style>
+        :root { --orange: #ff4500; --card: rgba(0,0,0,.8); --line: #2a2a2a; }
+
+        /* ---------- Header / navbar ---------- */
+        .header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; padding: 15px 5%; background: #000; border-bottom: 3px solid var(--orange); }
+        .header .logo { display: flex; align-items: center; gap: 10px; color: #fff; font-size: 1.6rem; font-weight: 800; }
+        .header .logo span { color: var(--orange); }
+        .header .nav-img { height: 50px; width: auto; }
+        .nav-links { display: flex; flex-wrap: wrap; gap: 40px; list-style: none; margin: 0; padding: 0; }
+        .nav-links a { color: #fff; text-decoration: none; font-weight: 800; font-size: 1.1rem; text-transform: uppercase; transition: color .2s; }
+        .nav-links a:hover { color: var(--orange); }
+
+        /* ---------- Layout ---------- */
+        .coach-section { max-width: 1200px; margin: 0 auto; padding: 40px 5% 60px; color: #fff; }
+        .intro { text-align: center; margin-bottom: 30px; }
+        .main-title { font-size: 3rem; margin: 0 0 10px; }
+        .main-title span { color: var(--orange); }
+        .intro p { color: #ccc; font-size: 1.1rem; max-width: 650px; margin: 0 auto; line-height: 1.6; }
+
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin: 35px 0 30px; }
+        .stat { background: var(--card); border: 1px solid var(--line); border-bottom: 3px solid var(--orange); border-radius: 12px; padding: 18px; text-align: center; }
+        .stat b { display: block; font-size: 2rem; color: var(--orange); }
+        .stat span { color: #ccc; font-size: .95rem; }
+
+        /* ---------- Filters ---------- */
+        .filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 40px; }
+        .chip { padding: 10px 22px; border-radius: 30px; border: 2px solid var(--orange); background: transparent; color: #fff; font-weight: 700; cursor: pointer; font-size: .95rem; transition: background .2s; }
+        .chip:hover { background: rgba(255,69,0,.2); }
+        .chip.on { background: var(--orange); }
+
+        /* ---------- Coach cards ---------- */
+        .Mycoach { display: grid; gap: 35px; }
+        .trainer-card {
+            display: grid; grid-template-columns: 380px 1fr; gap: 0; overflow: hidden;
+            background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+            opacity: 0; transform: translateY(30px); transition: opacity .6s, transform .6s, box-shadow .3s;
+        }
+        .trainer-card.show { opacity: 1; transform: none; }
+        .trainer-card:hover { box-shadow: 0 12px 35px rgba(255,69,0,.25); }
+        .trainer-card.reverse { grid-template-columns: 1fr 380px; }
+        .trainer-card.reverse .coach-image { order: 2; }
+        .trainer-card.hide { display: none; }
+
+        .coach-image { position: relative; min-height: 440px; background: linear-gradient(135deg, #222, #000); }
+        .coach-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+        .coach-image .initials { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; font-size: 5rem; font-weight: 800; color: var(--orange); }
+        .coach-image.noimg .initials { display: flex; }
+        .coach-image.noimg img { display: none; }
+        .coach-image .badge { position: absolute; left: 16px; bottom: 16px; background: var(--orange); color: #fff; font-weight: 800; font-size: .8rem; padding: 6px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; }
+
+        .About_coach { padding: 32px; display: flex; flex-direction: column; }
+        .quote { color: #ddd; border-left: 4px solid var(--orange); padding-left: 14px; margin: 0 0 18px; line-height: 1.6; }
+        .About_coach h2 { margin: 0; font-size: 2.2rem; }
+        .rank { color: var(--orange); font-weight: 700; margin: 4px 0 12px; display: block; }
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+        .tag { background: #1a1a1a; border: 1px solid #444; color: #ddd; font-size: .8rem; padding: 4px 12px; border-radius: 20px; }
+        .bio { color: #ccc; line-height: 1.7; margin: 0 0 14px; }
+        .About_coach h3 { margin: 6px 0 8px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; }
+        .why-list { list-style: none; margin: 0 0 22px; padding: 0; }
+        .why-list li { position: relative; padding-left: 28px; margin-bottom: 9px; color: #ddd; line-height: 1.5; }
+        .why-list li::before { content: "\2713"; position: absolute; left: 0; color: var(--orange); font-weight: 800; }
+        .why-list b { color: #fff; }
+        .train-btn { align-self: flex-start; margin-top: auto; display: inline-block; padding: 13px 30px; background: var(--orange); color: #fff; font-weight: 800; border-radius: 30px; text-decoration: none; transition: transform .2s, background .2s; }
+        .train-btn:hover { background: #ff6a33; transform: translateY(-2px); }
+
+        /* ---------- CTA ---------- */
+        .coach-cta { margin-top: 60px; text-align: center; padding: 40px 20px; border-radius: 16px; background: linear-gradient(135deg, rgba(255,69,0,.25), rgba(0,0,0,.8)); border: 1px solid var(--orange); }
+        .coach-cta h3 { font-size: 1.9rem; margin: 0 0 8px; }
+        .coach-cta p { color: #ddd; margin: 0 0 18px; }
+
+        .footer { text-align: center; padding: 25px 5%; background: #000; border-top: 3px solid var(--orange); color: #fff; }
+        .footer .social { display: flex; justify-content: center; gap: 18px; margin-bottom: 12px; }
+        .footer .ico { color: #fff; font-size: 1.8rem; text-decoration: none; transition: color .2s; }
+        .footer .ico:hover { color: var(--orange); }
+        .footer p { margin: 0; }
+
+        @media (max-width: 800px) {
+            .trainer-card, .trainer-card.reverse { grid-template-columns: 1fr; }
+            .trainer-card.reverse .coach-image { order: 0; }
+            .coach-image { min-height: 360px; }
+            .main-title { font-size: 2.2rem; }
+        }
+        @media (prefers-reduced-motion: reduce) { .trainer-card { opacity: 1; transform: none; transition: none; } }
+    </style>
+</head>
+
+<body class="coach-page-body">
+
+    <header class="header">
+        <div class="logo">
+            <img src="log.png" alt="Royal Fitness Logo" class="nav-img">
+            Royal <span>Fitness</span>
+        </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="Service.html">SERVICE</a></li>
+                <li><a href="Contact.html">CONTACT</a></li>
+                <li><a href="Price.html">PRICE</a></li>
+                <li><a href="Schedule.html">SCHEDULE</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="coach-section">
+
+        <div class="intro">
+            <h1 class="main-title">MEET OUR <span>COACHES</span></h1>
+            <p>Four senior specialists, one goal: helping you get stronger, safely. Find the coach whose style fits you best.</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat"><b>4</b><span>Senior Coaches</span></div>
+            <div class="stat"><b>8+</b><span>Years Experience</span></div>
+            <div class="stat"><b>100+</b><span>Clients Coached Each</span></div>
+            <div class="stat"><b>1-on-1</b><span>Personal Plans</span></div>
+        </div>
+
+        <div class="filters" role="group" aria-label="Filter coaches">
+            <button class="chip on" data-filter="all" type="button">All Coaches</button>
+            <button class="chip" data-filter="strength" type="button">Strength</button>
+            <button class="chip" data-filter="beginners" type="button">Beginners &amp; Confidence</button>
+            <button class="chip" data-filter="performance" type="button">Athletes &amp; Busy People</button>
+        </div>
+
+        <div class="Mycoach">
+
+            <!-- Coach 1: Jax Miller -->
+            <div class="trainer-card" data-cat="strength">
+                <div class="coach-image">
+                    <img src="male.jfif" alt="Jax Miller">
+                    <div class="initials">JM</div>
+                    <span class="badge">Strength</span>
+                </div>
+                <div class="About_coach">
+                    <p class="quote"><i>"Fitness isn't about being better than someone else; it's about being better than you were yesterday."</i></p>
+                    <h2>Jax Miller</h2>
+                    <span class="rank">Senior Strength &amp; Performance Specialist</span>
+                    <div class="tags"><span class="tag">Strength</span><span class="tag">Muscle Building</span><span class="tag">Injury-Free Training</span></div>
+                    <p class="bio">Jax dedicated his life to uncovering the most efficient ways to build strength without burnout.</p>
+                    <h3>Why Jax?</h3>
+                    <ul class="why-list">
+                        <li><b>8+ Years Experience:</b> Proven track record with 100+ clients.</li>
+                        <li><b>Movement Quality Expert:</b> Focus on technique and safety.</li>
+                        <li><b>Results-Driven:</b> Specialized in body transformations.</li>
+                    </ul>
+                    <a href="Contact.html?coach=Jax%20Miller" class="train-btn">Train with Jax</a>
+                </div>
+            </div>
+
+            <!-- Coach 2: Sloane Rivers -->
+            <div class="trainer-card reverse" data-cat="beginners">
+                <div class="coach-image">
+                    <img src="femal (2).jfif" alt="Sloane Rivers">
+                    <div class="initials">SR</div>
+                    <span class="badge">Confidence</span>
+                </div>
+                <div class="About_coach">
+                    <p class="quote"><i>"Strength isn't just about what you can lift; it's about the confidence you build along the way."</i></p>
+                    <h2>Sloane Rivers</h2>
+                    <span class="rank">Senior Strength &amp; Performance Specialist</span>
+                    <div class="tags"><span class="tag">Beginners</span><span class="tag">Confidence</span><span class="tag">Body Transformation</span></div>
+                    <p class="bio">Sloane focuses on empowering her clients to feel confident, capable, and strong in every movement.</p>
+                    <h3>Why Sloane?</h3>
+                    <ul class="why-list">
+                        <li><b>8+ Years Experience:</b> Proven track record with 100+ clients.</li>
+                        <li><b>Movement Quality Expert:</b> Focus on technique and safety.</li>
+                        <li><b>Results-Driven:</b> Specialized in body transformations.</li>
+                    </ul>
+                    <a href="Contact.html?coach=Sloane%20Rivers" class="train-btn">Train with Sloane</a>
+                </div>
+            </div>
+
+            <!-- Coach 3: Watson Jay -->
+            <div class="trainer-card" data-cat="performance">
+                <div class="coach-image">
+                    <img src="male2.jfif" alt="Watson Jay">
+                    <div class="initials">WJ</div>
+                    <span class="badge">Performance</span>
+                </div>
+                <div class="About_coach">
+                    <p class="quote"><i>"Success starts with the decision to try."</i></p>
+                    <h2>Watson Jay</h2>
+                    <span class="rank">Senior Strength &amp; Performance Specialist</span>
+                    <div class="tags"><span class="tag">Athletes</span><span class="tag">Busy Professionals</span><span class="tag">High Performance</span></div>
+                    <p class="bio">Watson specializes in high-performance training for athletes and busy professionals.</p>
+                    <h3>Why Watson?</h3>
+                    <ul class="why-list">
+                        <li><b>8+ Years Experience:</b> Proven track record with 100+ clients.</li>
+                        <li><b>Movement Quality Expert:</b> Focus on technique and safety.</li>
+                        <li><b>Results-Driven:</b> Specialized in body transformations.</li>
+                    </ul>
+                    <a href="Contact.html?coach=Watson%20Jay" class="train-btn">Train with Watson</a>
+                </div>
+            </div>
+
+            <!-- Coach 4: Liyu Deve -->
+            <div class="trainer-card reverse" data-cat="strength">
+                <div class="coach-image">
+                    <img src="femal (1).jfif" alt="Liyu Deve">
+                    <div class="initials">LD</div>
+                    <span class="badge">Science-Based</span>
+                </div>
+                <div class="About_coach">
+                    <p class="quote"><i>"Your body can stand almost anything. It's your mind that you have to convince."</i></p>
+                    <h2>Liyu Deve</h2>
+                    <span class="rank">Senior Strength &amp; Performance Specialist</span>
+                    <div class="tags"><span class="tag">Strength</span><span class="tag">Science-Based</span><span class="tag">Mindset</span></div>
+                    <p class="bio">Liyu combines modern science with traditional strength training for maximum results.</p>
+                    <h3>Why Liyu?</h3>
+                    <ul class="why-list">
+                        <li><b>8+ Years Experience:</b> Proven track record with 100+ clients.</li>
+                        <li><b>Movement Quality Expert:</b> Focus on technique and safety.</li>
+                        <li><b>Results-Driven:</b> Specialized in body transformations.</li>
+                    </ul>
+                    <a href="Contact.html?coach=Liyu%20Deve" class="train-btn">Train with Liyu</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="coach-cta">
+            <h3>Not Sure Who to Pick?</h3>
+            <p>Tell us your goal and we will match you with the right coach.</p>
+            <a href="Contact.html" class="train-btn">Contact Us</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="social">
+            <a href="#" class="ico"><i class='bx bxl-facebook-circle'></i></a>
+            <a href="#" class="ico"><i class='bx bxl-instagram'></i></a>
+            <a href="#" class="ico"><i class='bx bxl-twitter'></i></a>
+            <a href="#" class="ico"><i class='bx bxl-github'></i></a>
+        </div>
+        <div class="copy">
+            <p>&copy; 2026 Royal Fitness | Gym Street, Wolkite</p>
+        </div>
+    </footer>
+
+    <script>
+        var cards = document.querySelectorAll('.trainer-card');
+
+        // Photo fallback: show initials if an image fails to load
+        document.querySelectorAll('.coach-image img').forEach(function (img) {
+            img.addEventListener('error', function () { img.parentElement.classList.add('noimg'); });
+        });
+
+        // Filter coaches
+        document.querySelectorAll('.chip').forEach(function (chip) {
+            chip.addEventListener('click', function () {
+                document.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('on'); });
+                chip.classList.add('on');
+                var f = chip.dataset.filter;
+                cards.forEach(function (card) {
+                    card.classList.toggle('hide', f !== 'all' && card.dataset.cat !== f);
+                });
+            });
+        });
+
+        // Fade cards in as they scroll into view
+        if ('IntersectionObserver' in window) {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+            }, { threshold: 0.15 });
+            cards.forEach(function (c) { io.observe(c); });
+        } else {
+            cards.forEach(function (c) { c.classList.add('show'); });
+        }
+    </script>
+
+</body>
+</html>

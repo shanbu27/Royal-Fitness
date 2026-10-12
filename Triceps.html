@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="stu.css">
+    <title>Royal Fitness - Triceps Day</title>
+
+    <style>
+        /* Responsive 16:9 YouTube player */
+        .video-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #111;
+        }
+        .video-wrap iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        /* Fallback shown until a video ID is added */
+        .video-fallback {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            padding: 10px;
+        }
+        /* ---------- Horizontal navbar ---------- */
+        .head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 15px 5%;
+            background: #000;
+            border-bottom: 3px solid #ff4500;
+        }
+        .head .Log {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            font-size: 1.6rem;
+            font-weight: 800;
+        }
+        .head .Log span { color: #ff4500; }
+        .head .Log .img { height: 50px; width: auto; }
+        .navbar ul {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar li { display: inline-block; }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+            transition: color .2s;
+        }
+        .navbar a:hover { color: #ff4500; }
+
+        /* ---------- Workout showcase ---------- */
+        .Chest_welcome { padding: 40px 5%; text-align: center; }
+        .Chest_welcome > h1 { font-size: 2.8rem; margin-bottom: 5px; }
+        .Chest_welcome > h2 { color: #ff4500; letter-spacing: 3px; margin-bottom: 30px; }
+
+        .section-title {
+            max-width: 1400px;
+            margin: 50px auto 20px;
+            text-align: left;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            color: #fff;
+            border-left: 6px solid #ff4500;
+            padding-left: 15px;
+        }
+        .Chest_page {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .Chest_page > div {
+            background: rgba(0, 0, 0, .75);
+            border: 1px solid #2a2a2a;
+            border-top: 4px solid #ff4500;
+            border-radius: 14px;
+            padding: 18px;
+            text-align: left;
+            transition: transform .25s, box-shadow .25s;
+        }
+        .Chest_page > div:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 30px rgba(255, 69, 0, .25);
+        }
+        .Chest_page h2 { margin: 16px 0 4px; font-size: 1.5rem; color: #fff; }
+        .Chest_page h3 { margin: 0 0 12px; font-size: 1rem; color: #ff4500; font-weight: 600; }
+        .Chest_page p { margin: 0 0 6px; color: #fff; }
+        .Chest_page ul { margin: 0; padding-left: 20px; color: #ddd; line-height: 1.7; }
+
+        .video-fallback i { font-size: 3rem; color: #ff0000; }
+        .video-fallback span {
+            background: #ff0000;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body class="chestday tricepsday">
+
+    <!-- Header & Navbar -->
+    <div class="head">
+        <div class="Log">
+            <img src="log.png" alt="Royal Fitness Logo" class="img">
+            Royal <span>Fitness</span>
+        </div>
+
+        <div class="navbar">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="Service.html">SERVICE</a></li>
+                <li><a href="Contact.html">CONTACT</a></li>
+                <li><a href="Price.html">PRICE</a></li>
+                <li><a href="Schedule.html">SCHEDULE</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="Chest_welcome">
+        <h1>Triceps Day</h1>
+        <h2>BUILD POWERFUL TRICEPS</h2>
+
+        <!--
+            HOW TO ADD A VIDEO:
+            1. Open the YouTube video you like.
+            2. Copy the ID from the link:  youtube.com/watch?v=XXXXXXXXXXX  -> XXXXXXXXXXX
+            3. Paste it into data-yt="" on that exercise's video-wrap below.
+        -->
+
+        <h3 class="section-title">Long Head (Overhead)</h3>
+        <div class="Chest_page">
+            <div>
+                <div class="video-wrap" data-yt="" data-search="overhead dumbbell triceps extension proper form"></div>
+                <h2>Overhead Dumbbell Extension</h2>
+                <h3>Target: Triceps Long Head</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Hold one dumbbell with both hands overhead.</li>
+                    <li>Lower it behind your head, elbows pointing up.</li>
+                    <li>Keep your upper arms still.</li>
+                    <li>Extend back up until arms are straight.</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="video-wrap" data-yt="" data-search="overhead cable triceps extension proper form"></div>
+                <h2>Overhead Cable Extension</h2>
+                <h3>Target: Triceps Long Head Stretch</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Face away from a high cable with a rope.</li>
+                    <li>Hold the rope behind your head.</li>
+                    <li>Extend your arms forward and up.</li>
+                    <li>Return slowly to a full stretch.</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="video-wrap" data-yt="" data-search="skull crushers proper form"></div>
+                <h2>Skull Crushers</h2>
+                <h3>Target: Triceps Mass</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Lie on a flat bench holding an EZ bar overhead.</li>
+                    <li>Bend your elbows to lower the bar toward your forehead.</li>
+                    <li>Keep your upper arms still.</li>
+                    <li>Extend back up to the start.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 class="section-title">Lateral &amp; Medial Heads</h3>
+        <div class="Chest_page">
+            <div>
+                <div class="video-wrap" data-yt="" data-search="triceps rope pushdown proper form"></div>
+                <h2>Rope Pushdown</h2>
+                <h3>Target: Triceps Lateral Head</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Stand facing a high cable with a rope.</li>
+                    <li>Keep your elbows tight to your sides.</li>
+                    <li>Push down and spread the rope at the bottom.</li>
+                    <li>Return slowly to chest height.</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="video-wrap" data-yt="" data-search="triceps pushdown proper form"></div>
+                <h2>Straight Bar Pushdown</h2>
+                <h3>Target: Triceps Overall Mass</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Grip a straight bar at chest height.</li>
+                    <li>Keep your upper arms still.</li>
+                    <li>Push the bar down until arms are straight.</li>
+                    <li>Return slowly without leaning forward.</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="video-wrap" data-yt="" data-search="dumbbell triceps kickback proper form"></div>
+                <h2>Triceps Kickback</h2>
+                <h3>Target: Triceps Isolation</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Hinge forward with your upper arm parallel to the floor.</li>
+                    <li>Hold a dumbbell with your elbow bent 90 degrees.</li>
+                    <li>Extend your arm straight back.</li>
+                    <li>Squeeze and return slowly.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 class="section-title">Compound Triceps</h3>
+        <div class="Chest_page">
+            <div>
+                <div class="video-wrap" data-yt="" data-search="close grip bench press proper form"></div>
+                <h2>Close-Grip Bench Press</h2>
+                <h3>Target: Triceps Strength and Mass</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Lie flat and grip the bar shoulder-width.</li>
+                    <li>Lower the bar to your lower chest.</li>
+                    <li>Keep elbows close to your body.</li>
+                    <li>Press up until arms are locked out.</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="video-wrap" data-yt="" data-search="bench dips proper form"></div>
+                <h2>Bench Dips</h2>
+                <h3>Target: Triceps for Beginners</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Place hands on a bench behind you.</li>
+                    <li>Extend your legs forward.</li>
+                    <li>Lower your body until elbows reach 90 degrees.</li>
+                    <li>Push back up to straight arms.</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="video-wrap" data-yt="" data-search="diamond push up proper form"></div>
+                <h2>Diamond Push-Ups</h2>
+                <h3>Target: Triceps and Inner Chest</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Form a diamond with your hands under your chest.</li>
+                    <li>Keep your body in a straight line.</li>
+                    <li>Lower your chest to your hands.</li>
+                    <li>Push back up to full extension.</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Social Links -->
+    <section>
+        <div class="social">
+            <a href="#" class="ico"><i class='bx bxl-facebook-circle'></i></a>
+            <a href="#" class="ico"><i class='bx bxl-instagram'></i></a>
+            <a href="#" class="ico"><i class='bx bxl-twitter'></i></a>
+            <a href="#" class="ico"><i class='bx bxl-github'></i></a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="last">
+            <div class="copy">
+                <h2>&copy; 2026 Royal Fitness | Gym Street, Wolkite</h2>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Builds a YouTube player for each exercise.
+        // If no video ID is set yet, shows a "Watch on YouTube" button instead.
+        document.querySelectorAll('.video-wrap').forEach(function (box) {
+            var id = box.dataset.yt.trim();
+            var title = box.nextElementSibling ? box.nextElementSibling.textContent : 'Exercise video';
+
+            if (id) {
+                var iframe = document.createElement('iframe');
+                iframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?rel=0&modestbranding=1';
+                iframe.title = title;
+                iframe.loading = 'lazy';
+                iframe.allow = 'accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                iframe.allowFullscreen = true;
+                box.appendChild(iframe);
+            } else {
+                var a = document.createElement('a');
+                a.className = 'video-fallback';
+                a.target = '_blank';
+                a.rel = 'noopener';
+                a.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(box.dataset.search);
+                a.innerHTML = "<i class='bx bxl-youtube'></i><span>Watch on YouTube</span>";
+                box.appendChild(a);
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="stu.css">
+    <title>Cardio &amp; Endurance | Royal Fitness</title>
+
+    <style>
+        :root { --orange: #ff4500; --card: rgba(0,0,0,.78); --line: #2a2a2a; }
+
+        /* ---------- Header / navbar ---------- */
+        .header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; padding: 15px 5%; background: #000; border-bottom: 3px solid var(--orange); }
+        .header .logo { display: flex; align-items: center; gap: 10px; color: #fff; font-size: 1.6rem; font-weight: 800; }
+        .header .logo span { color: var(--orange); }
+        .header .nav-img { height: 50px; width: auto; }
+        .nav-links { display: flex; flex-wrap: wrap; gap: 40px; list-style: none; margin: 0; padding: 0; }
+        .nav-links a { color: #fff; text-decoration: none; font-weight: 800; font-size: 1.1rem; text-transform: uppercase; transition: color .2s; }
+        .nav-links a:hover { color: var(--orange); }
+
+        /* ---------- Layout ---------- */
+        .cardio-container { max-width: 1250px; margin: 0 auto; padding: 40px 5% 60px; color: #fff; }
+        .cardio-header { text-align: center; margin-bottom: 40px; }
+        .cardio-header h1 { font-size: 3rem; margin: 0 0 8px; }
+        .cardio-header h1 span, .sub-heading span { color: var(--orange); }
+        .cardio-header p { color: #ccc; font-size: 1.1rem; margin: 0; }
+        .sub-heading { font-size: 1.9rem; margin: 60px 0 10px; text-transform: uppercase; border-left: 6px solid var(--orange); padding-left: 15px; }
+        .section-sub { color: #bbb; margin: 0 0 25px 21px; }
+
+        .focus-grid, .zone-grid, .tips-grid { display: grid; gap: 22px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+        .focus-box, .program-card, .timer-box, .hr-box, .zone, .tip-card, .day {
+            background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--orange); border-radius: 14px; padding: 22px;
+        }
+        .focus-box { text-align: center; transition: transform .25s, box-shadow .25s; }
+        .focus-box:hover, .program-card:hover { transform: translateY(-5px); box-shadow: 0 10px 28px rgba(255,69,0,.25); }
+        .icon-circle { width: 70px; height: 70px; margin: 0 auto 10px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(255,69,0,.15); border: 2px solid var(--orange); }
+        .icon-circle i, .tip-card i { font-size: 2.2rem; color: var(--orange); }
+        .focus-box h3, .tip-card h3 { margin: 8px 0; }
+        .focus-box p, .tip-card p { color: #ccc; margin: 6px 0 0; line-height: 1.6; }
+        .focus-box small { display: block; margin-top: 10px; color: var(--orange); font-weight: 700; }
+
+        /* ---------- Buttons ---------- */
+        .start-btn, .ghost-btn, .ctl-btn {
+            border: 0; cursor: pointer; border-radius: 30px; font-weight: 800; font-size: 1rem; padding: 12px 24px; transition: transform .2s, background .2s;
+        }
+        .start-btn, .ctl-btn { background: var(--orange); color: #fff; }
+        .start-btn:hover, .ctl-btn:hover { background: #ff6a33; transform: translateY(-2px); }
+        .ghost-btn { background: transparent; color: #fff; border: 2px solid var(--orange); }
+        .ghost-btn:hover { background: rgba(255,69,0,.2); }
+
+        /* ---------- Programs ---------- */
+        .program-list { display: grid; gap: 22px; }
+        .program-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; }
+        .prog-info h3 { margin: 0 0 4px; font-size: 1.45rem; }
+        .prog-info p { margin: 0; color: #ccc; }
+        .prog-difficulty { display: flex; align-items: center; gap: 5px; }
+        .prog-difficulty .bar { width: 38px; height: 10px; border-radius: 5px; background: #333; }
+        .prog-difficulty .bar.full { background: var(--orange); }
+        .prog-difficulty em { margin-left: 8px; font-style: normal; color: #bbb; font-size: .9rem; }
+        .prog-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+        .drills { display: none; margin-top: 18px; padding-top: 18px; border-top: 1px dashed #444; }
+        .drills.open { display: block; }
+        .drills ol { margin: 0 0 10px; padding-left: 22px; color: #ddd; line-height: 1.8; }
+        .drills .note { color: #bbb; margin: 8px 0 0; }
+        .drills b { color: var(--orange); }
+
+        /* ---------- Timer ---------- */
+        .timer-wrap { display: grid; gap: 22px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .timer-box label { display: block; font-weight: 600; margin: 12px 0 5px; }
+        .timer-box input { width: 100%; padding: 11px; border-radius: 8px; border: 1px solid #444; background: #111; color: #fff; font-size: 1rem; box-sizing: border-box; }
+        .t-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .display { text-align: center; display: flex; flex-direction: column; justify-content: center; transition: background .3s, border-color .3s; }
+        .display .phase { font-size: 1.4rem; font-weight: 800; letter-spacing: 3px; color: #bbb; }
+        .display .time { font-size: 5rem; font-weight: 800; line-height: 1.1; font-variant-numeric: tabular-nums; }
+        .display .round { color: #ccc; margin-bottom: 15px; }
+        .display .btns { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+        .display.work { border-color: var(--orange); background: rgba(255,69,0,.18); }
+        .display.work .phase { color: var(--orange); }
+        .display.rest { border-color: #1e90ff; background: rgba(30,144,255,.15); }
+        .display.rest .phase { color: #55aaff; }
+        .display.done { border-color: #2ecc71; background: rgba(46,204,113,.15); }
+        .display.done .phase { color: #2ecc71; }
+        .preset-name { color: var(--orange); font-weight: 700; min-height: 1.3em; margin-bottom: 4px; }
+
+        /* ---------- Heart rate ---------- */
+        .hr-box { margin-bottom: 22px; display: flex; flex-wrap: wrap; align-items: flex-end; gap: 15px; }
+        .hr-box div { flex: 1; min-width: 180px; }
+        .hr-box label { display: block; font-weight: 600; margin-bottom: 5px; }
+        .hr-box input { width: 100%; padding: 11px; border-radius: 8px; border: 1px solid #444; background: #111; color: #fff; font-size: 1rem; box-sizing: border-box; }
+        .hr-max { color: #ddd; width: 100%; margin: 0; }
+        .hr-max b { color: var(--orange); font-size: 1.3rem; }
+        .zone h4 { margin: 0 0 4px; color: var(--orange); }
+        .zone .bpm { font-size: 1.5rem; font-weight: 800; margin: 4px 0; }
+        .zone p { margin: 0; color: #ccc; font-size: .95rem; line-height: 1.5; }
+        .zone .pct { color: #999; font-size: .85rem; }
+
+        /* ---------- Weekly plan ---------- */
+        .week { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+        .day { padding: 16px; text-align: center; }
+        .day b { display: block; color: var(--orange); letter-spacing: 1px; }
+        .day span { display: block; margin-top: 6px; color: #ddd; font-size: .95rem; }
+        .day.rest-day { border-top-color: #555; }
+        .day.rest-day b { color: #999; }
+
+        .disclaimer { color: #888; font-size: .85rem; text-align: center; margin-top: 40px; }
+        .footer { text-align: center; padding: 25px 5%; background: #000; border-top: 3px solid var(--orange); color: #fff; }
+        .footer .social { display: flex; justify-content: center; gap: 18px; margin-bottom: 12px; }
+        .footer .ico { color: #fff; font-size: 1.8rem; text-decoration: none; transition: color .2s; }
+        .footer .ico:hover { color: var(--orange); }
+        .footer p { margin: 0; }
+    </style>
+</head>
+<body class="cardio-page">
+
+    <header class="header">
+        <div class="logo">
+            <img src="log.png" alt="Royal Fitness Logo" class="nav-img">
+            Royal <span>Fitness</span>
+        </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="Service.html">SERVICE</a></li>
+                <li><a href="Contact.html">CONTACT</a></li>
+                <li><a href="Price.html">PRICE</a></li>
+                <li><a href="Schedule.html">SCHEDULE</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="cardio-container">
+
+        <div class="cardio-header">
+            <h1>HEART <span>OF A LION</span></h1>
+            <p>Elevate your heart rate, burn fat, and build unstoppable stamina.</p>
+        </div>
+
+        <!-- Focus -->
+        <div class="focus-grid">
+            <div class="focus-box">
+                <div class="icon-circle"><i class='bx bx-timer'></i></div>
+                <h3>HIIT</h3>
+                <p>High-Intensity Interval Training. Short bursts, maximum burn in less time.</p>
+                <small>2-3 times per week</small>
+            </div>
+            <div class="focus-box">
+                <div class="icon-circle"><i class='bx bx-run'></i></div>
+                <h3>Endurance</h3>
+                <p>Steady-state cardio (LISS) for long-term heart health, recovery and stamina.</p>
+                <small>2-3 times per week</small>
+            </div>
+            <div class="focus-box">
+                <div class="icon-circle"><i class='bx bxs-zap'></i></div>
+                <h3>Sprints &amp; Agility</h3>
+                <p>Build speed, power and quick reflexes with all-out efforts and athletic drills.</p>
+                <small>1 time per week</small>
+            </div>
+        </div>
+
+        <!-- Programs -->
+        <h2 class="sub-heading">CARDIO <span>PROGRAMS</span></h2>
+        <p class="section-sub">Tap "View Drills" for the full session, or "Load in Timer" to start straight away.</p>
+
+        <div class="program-list">
+
+            <div class="program-card">
+                <div class="program-top">
+                    <div class="prog-info">
+                        <h3>The Fat Shredder</h3>
+                        <p>About 30 Min &bull; HIIT &bull; Intermediate</p>
+                    </div>
+                    <div class="prog-difficulty">
+                        <span class="bar full"></span><span class="bar full"></span><span class="bar"></span><em>Intermediate</em>
+                    </div>
+                    <div class="prog-actions">
+                        <button class="ghost-btn view-btn" type="button">View Drills</button>
+                        <button class="start-btn load-btn" type="button" data-name="The Fat Shredder" data-work="40" data-rest="20" data-rounds="15">Load in Timer</button>
+                    </div>
+                </div>
+                <div class="drills">
+                    <p><b>Warm-up (5 min):</b> easy jog or jumping jacks, arm circles, leg swings.</p>
+                    <p><b>Circuit:</b> 40 seconds work, 20 seconds rest. Do all 5 moves, then repeat for 3 rounds (rest 1 minute between rounds).</p>
+                    <ol>
+                        <li>Burpees</li>
+                        <li>High knees</li>
+                        <li>Mountain climbers</li>
+                        <li>Jump squats</li>
+                        <li>Skater hops</li>
+                    </ol>
+                    <p><b>Cool-down (5 min):</b> slow walk and stretch calves, quads, hamstrings.</p>
+                    <p class="note">Easier: swap burpees for step-back burpees and jump squats for normal squats.</p>
+                </div>
+            </div>
+
+            <div class="program-card">
+                <div class="program-top">
+                    <div class="prog-info">
+                        <h3>Marathon Base</h3>
+                        <p>60 Min &bull; LISS &bull; Beginner</p>
+                    </div>
+                    <div class="prog-difficulty">
+                        <span class="bar full"></span><span class="bar"></span><span class="bar"></span><em>Beginner</em>
+                    </div>
+                    <div class="prog-actions">
+                        <button class="ghost-btn view-btn" type="button">View Drills</button>
+                        <button class="start-btn load-btn" type="button" data-name="Marathon Base (Run/Walk)" data-work="240" data-rest="60" data-rounds="10">Load in Timer</button>
+                    </div>
+                </div>
+                <div class="drills">
+                    <p><b>Warm-up (5 min):</b> brisk walk, then a few gentle leg swings.</p>
+                    <p><b>Main set (50 min):</b> jog 4 minutes, walk 1 minute, repeat 10 times. Stay at a pace where you can still talk (Zone 2).</p>
+                    <p><b>Cool-down (5 min):</b> slow walk and light stretching.</p>
+                    <p class="note">Too hard? Jog 2 minutes and walk 2 minutes. As you improve, shorten the walks until you can jog the full 50 minutes.</p>
+                </div>
+            </div>
+
+            <div class="program-card">
+                <div class="program-top">
+                    <div class="prog-info">
+                        <h3>The Sprint Finisher</h3>
+                        <p>15 Min &bull; Sprints &bull; Advanced</p>
+                    </div>
+                    <div class="prog-difficulty">
+                        <span class="bar full"></span><span class="bar full"></span><span class="bar full"></span><em>Advanced</em>
+                    </div>
+                    <div class="prog-actions">
+                        <button class="ghost-btn view-btn" type="button">View Drills</button>
+                        <button class="start-btn load-btn" type="button" data-name="The Sprint Finisher" data-work="20" data-rest="90" data-rounds="6">Load in Timer</button>
+                    </div>
+                </div>
+                <div class="drills">
+                    <p><b>Warm-up (4 min):</b> easy jog, high knees, butt kicks, two 10-second build-up runs.</p>
+                    <p><b>Main set:</b> sprint 20 seconds as fast as safely possible, then walk 90 seconds. Repeat 6 times.</p>
+                    <p><b>Cool-down:</b> slow walk until your breathing is normal.</p>
+                    <p class="note">Sprint on a flat, even surface with good shoes. Stop if you feel a sharp pain or dizziness. Use this once a week at most.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timer -->
+        <h2 class="sub-heading">INTERVAL <span>TIMER</span></h2>
+        <p class="section-sub">Set your work and rest times, or load one of the programs above. The timer beeps at every change.</p>
+
+        <div class="timer-wrap">
+            <div class="timer-box">
+                <div class="preset-name" id="presetName">Custom workout</div>
+                <div class="t-row">
+                    <div><label for="tWork">Work (sec)</label><input type="number" id="tWork" min="5" max="900" value="40"></div>
+                    <div><label for="tRest">Rest (sec)</label><input type="number" id="tRest" min="0" max="600" value="20"></div>
+                    <div><label for="tRounds">Rounds</label><input type="number" id="tRounds" min="1" max="60" value="10"></div>
+                </div>
+                <p style="color:#aaa;margin:14px 0 0" id="totalTime"></p>
+            </div>
+
+            <div class="timer-box display" id="display">
+                <div class="phase" id="phase">READY</div>
+                <div class="time" id="time">00:00</div>
+                <div class="round" id="roundTxt">Round 0 / 0</div>
+                <div class="btns">
+                    <button class="ctl-btn" id="startBtn" type="button">Start</button>
+                    <button class="ghost-btn" id="resetBtn" type="button">Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Heart rate zones -->
+        <h2 class="sub-heading">HEART RATE <span>ZONES</span></h2>
+        <p class="section-sub">Train at the right intensity. Enter your age to see your zones.</p>
+
+        <div class="hr-box">
+            <div>
+                <label for="hrAge">Your age</label>
+                <input type="number" id="hrAge" min="14" max="90" placeholder="e.g. 25">
+            </div>
+            <button class="start-btn" id="hrBtn" type="button">Show My Zones</button>
+            <p class="hr-max" id="hrMax"></p>
+        </div>
+
+        <div class="zone-grid" id="zones">
+            <div class="zone"><h4>Zone 1: Easy</h4><div class="bpm" data-lo="50" data-hi="60">-- bpm</div><div class="pct">50-60% of max</div><p>Warm-up, cool-down and recovery walks.</p></div>
+            <div class="zone"><h4>Zone 2: Endurance</h4><div class="bpm" data-lo="60" data-hi="70">-- bpm</div><div class="pct">60-70% of max</div><p>You can talk easily. Best for LISS and building your base.</p></div>
+            <div class="zone"><h4>Zone 3: Tempo</h4><div class="bpm" data-lo="70" data-hi="80">-- bpm</div><div class="pct">70-80% of max</div><p>Comfortably hard. Short sentences only.</p></div>
+            <div class="zone"><h4>Zone 4: Hard</h4><div class="bpm" data-lo="80" data-hi="90">-- bpm</div><div class="pct">80-90% of max</div><p>Hard effort for HIIT work intervals.</p></div>
+            <div class="zone"><h4>Zone 5: Max</h4><div class="bpm" data-lo="90" data-hi="100">-- bpm</div><div class="pct">90-100% of max</div><p>All-out sprints for very short bursts only.</p></div>
+        </div>
+
+        <!-- Weekly plan -->
+        <h2 class="sub-heading">SAMPLE <span>WEEK</span></h2>
+        <p class="section-sub">Mix cardio with your strength days. Adjust to your schedule and fitness.</p>
+        <div class="week">
+            <div class="day"><b>MON</b><span>Fat Shredder (HIIT)</span></div>
+            <div class="day"><b>TUE</b><span>Strength training</span></div>
+            <div class="day"><b>WED</b><span>Marathon Base (LISS)</span></div>
+            <div class="day"><b>THU</b><span>Strength training</span></div>
+            <div class="day"><b>FRI</b><span>Sprint Finisher</span></div>
+            <div class="day"><b>SAT</b><span>Easy walk or sport</span></div>
+            <div class="day rest-day"><b>SUN</b><span>Rest and recover</span></div>
+        </div>
+
+        <!-- Tips -->
+        <h2 class="sub-heading">SMART <span>TIPS</span></h2>
+        <div class="tips-grid">
+            <div class="tip-card"><i class='bx bx-water'></i><h3>Hydrate</h3><p>Drink water before, during and after. In hot weather, drink more.</p></div>
+            <div class="tip-card"><i class='bx bx-time'></i><h3>Warm Up Always</h3><p>5 minutes of easy movement prepares your heart, joints and muscles.</p></div>
+            <div class="tip-card"><i class='bx bx-trending-up'></i><h3>Progress Slowly</h3><p>Add no more than 10% to your time or distance each week to avoid injury.</p></div>
+            <div class="tip-card"><i class='bx bx-moon'></i><h3>Recover</h3><p>Do hard HIIT or sprints no more than 3 days a week, with easy days between.</p></div>
+        </div>
+
+        <p class="disclaimer">This is general fitness guidance, not medical advice. If you have a heart condition, chest pain, dizziness or any health concern, speak to a doctor before starting hard cardio.</p>
+    </main>
+
+    <footer class="footer">
+        <div class="social">
+            <a href="#" class="ico"><i class='bx bxl-facebook-circle'></i></a>
+            <a href="#" class="ico"><i class='bx bxl-instagram'></i></a>
+            <a href="#" class="ico"><i class='bx bxl-twitter'></i></a>
+        </div>
+        <p>&copy; 2026 Royal Fitness | Stamina &amp; Performance</p>
+    </footer>
+
+    <script>
+        // ----- Expand / collapse drills -----
+        document.querySelectorAll('.view-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var d = btn.closest('.program-card').querySelector('.drills');
+                var open = d.classList.toggle('open');
+                btn.textContent = open ? 'Hide Drills' : 'View Drills';
+            });
+        });
+
+        // ----- Interval timer -----
+        var $ = function (id) { return document.getElementById(id); };
+        var state = { phase: 'ready', left: 0, round: 0, timer: null, running: false };
+        var audioCtx = null;
+
+        function beep(freq, ms) {
+            try {
+                audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+                var o = audioCtx.createOscillator(), g = audioCtx.createGain();
+                o.frequency.value = freq; o.connect(g); g.connect(audioCtx.destination);
+                g.gain.value = 0.15; o.start(); o.stop(audioCtx.currentTime + ms / 1000);
+            } catch (e) {}
+        }
+        function fmt(s) { var m = Math.floor(s / 60), r = s % 60; return (m < 10 ? '0' : '') + m + ':' + (r < 10 ? '0' : '') + r; }
+        function cfg() {
+            return {
+                work: Math.max(5, parseInt($('tWork').value) || 40),
+                rest: Math.max(0, parseInt($('tRest').value) || 0),
+                rounds: Math.max(1, parseInt($('tRounds').value) || 1)
+            };
+        }
+        function updateTotal() {
+            var c = cfg();
+            var total = c.work * c.rounds + c.rest * (c.rounds - 1);
+            $('totalTime').textContent = 'Total time: ' + fmt(total) + ' (' + Math.round(total / 60) + ' min)';
+        }
+        function render() {
+            var c = cfg(), d = $('display');
+            d.className = 'timer-box display';
+            if (state.phase === 'work') { d.classList.add('work'); $('phase').textContent = 'WORK'; }
+            else if (state.phase === 'rest') { d.classList.add('rest'); $('phase').textContent = 'REST'; }
+            else if (state.phase === 'done') { d.classList.add('done'); $('phase').textContent = 'DONE!'; }
+            else { $('phase').textContent = 'READY'; }
+            $('time').textContent = fmt(state.phase === 'ready' ? c.work : state.left);
+            $('roundTxt').textContent = 'Round ' + state.round + ' / ' + c.rounds;
+            $('startBtn').textContent = state.running ? 'Pause' : (state.phase === 'ready' || state.phase === 'done' ? 'Start' : 'Resume');
+        }
+        function tick() {
+            state.left--;
+            if (state.left > 0 && state.left <= 3) beep(660, 80);
+            if (state.left <= 0) {
+                var c = cfg();
+                if (state.phase === 'work') {
+                    if (state.round >= c.rounds) { finish(); return; }
+                    if (c.rest > 0) { state.phase = 'rest'; state.left = c.rest; beep(440, 300); }
+                    else { state.round++; state.phase = 'work'; state.left = c.work; beep(880, 300); }
+                } else {
+                    state.round++; state.phase = 'work'; state.left = c.work; beep(880, 300);
+                }
+            }
+            render();
+        }
+        function finish() {
+            clearInterval(state.timer); state.running = false; state.phase = 'done'; state.left = 0;
+            beep(880, 200); setTimeout(function () { beep(880, 200); }, 300); setTimeout(function () { beep(1100, 500); }, 600);
+            render();
+        }
+        function reset() {
+            clearInterval(state.timer);
+            state = { phase: 'ready', left: 0, round: 0, timer: null, running: false };
+            render();
+        }
+        $('startBtn').addEventListener('click', function () {
+            if (state.running) { clearInterval(state.timer); state.running = false; render(); return; }
+            if (state.phase === 'ready' || state.phase === 'done') {
+                var c = cfg(); state.phase = 'work'; state.round = 1; state.left = c.work; beep(880, 300);
+            }
+            state.running = true;
+            state.timer = setInterval(tick, 1000);
+            render();
+        });
+        $('resetBtn').addEventListener('click', reset);
+        ['tWork', 'tRest', 'tRounds'].forEach(function (id) {
+            $(id).addEventListener('input', function () { if (!state.running) { reset(); } updateTotal(); });
+        });
+        document.querySelectorAll('.load-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                $('tWork').value = btn.dataset.work;
+                $('tRest').value = btn.dataset.rest;
+                $('tRounds').value = btn.dataset.rounds;
+                $('presetName').textContent = 'Loaded: ' + btn.dataset.name;
+                reset(); updateTotal();
+                $('display').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        });
+        updateTotal(); render();
+
+        // ----- Heart rate zones (Tanaka formula) -----
+        $('hrBtn').addEventListener('click', function () {
+            var age = parseFloat($('hrAge').value);
+            if (!age || age < 14 || age > 90) { $('hrMax').textContent = 'Please enter a valid age (14-90).'; return; }
+            var max = Math.round(208 - 0.7 * age);
+            $('hrMax').innerHTML = 'Estimated max heart rate: <b>' + max + ' bpm</b>';
+            document.querySelectorAll('#zones .bpm').forEach(function (el) {
+                el.textContent = Math.round(max * el.dataset.lo / 100) + ' - ' + Math.round(max * el.dataset.hi / 100) + ' bpm';
+            });
+        });
+    </script>
+
+</body>
+</html>

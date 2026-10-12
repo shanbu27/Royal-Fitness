@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="stu.css">
+    <title>Royal Fitness - Biceps Day</title>
+
+    <style>
+        /* Responsive 16:9 YouTube player */
+        .video-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #111;
+        }
+        .video-wrap iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        /* Fallback shown until a video ID is added */
+        .video-fallback {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            padding: 10px;
+        }
+        /* ---------- Horizontal navbar ---------- */
+        .head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 15px 5%;
+            background: #000;
+            border-bottom: 3px solid #ff4500;
+        }
+        .head .Log {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            font-size: 1.6rem;
+            font-weight: 800;
+        }
+        .head .Log span { color: #ff4500; }
+        .head .Log .img { height: 50px; width: auto; }
+        .navbar ul {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar li { display: inline-block; }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+            transition: color .2s;
+        }
+        .navbar a:hover { color: #ff4500; }
+
+        /* ---------- Workout showcase ---------- */
+        .Chest_welcome { padding: 40px 5%; text-align: center; }
+        .Chest_welcome > h1 { font-size: 2.8rem; margin-bottom: 5px; }
+        .Chest_welcome > h2 { color: #ff4500; letter-spacing: 3px; margin-bottom: 30px; }
+
+        .section-title {
+            max-width: 1400px;
+            margin: 50px auto 20px;
+            text-align: left;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            color: #fff;
+            border-left: 6px solid #ff4500;
+            padding-left: 15px;
+        }
+        .Chest_page {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .Chest_page > div {
+            background: rgba(0, 0, 0, .75);
+            border: 1px solid #2a2a2a;
+            border-top: 4px solid #ff4500;
+            border-radius: 14px;
+            padding: 18px;
+            text-align: left;
+            transition: transform .25s, box-shadow .25s;
+        }
+        .Chest_page > div:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 30px rgba(255, 69, 0, .25);
+        }
+        .Chest_page h2 { margin: 16px 0 4px; font-size: 1.5rem; color: #fff; }
+        .Chest_page h3 { margin: 0 0 12px; font-size: 1rem; color: #ff4500; font-weight: 600; }
+        .Chest_page p { margin: 0 0 6px; color: #fff; }
+        .Chest_page ul { margin: 0; padding-left: 20px; color: #ddd; line-height: 1.7; }
+
+        .video-fallback i { font-size: 3rem; color: #ff0000; }
+        .video-fallback span {
+            background: #ff0000;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body class="chestday bicepsday">
+
+    <!-- Header & Navbar -->
+    <div class="head">
+        <div class="Log">
+            <img src="log.png" alt="Royal Fitness Logo" class="img">
+            Royal <span>Fitness</span>
+        </div>
+
+        <div class="navbar">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="Service.html">SERVICE</a></li>
+                <li><a href="Contact.html">CONTACT</a></li>
+                <li><a href="Price.html">PRICE</a></li>
+                <li><a href="Schedule.html">SCHEDULE</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="Chest_welcome">
+        <h1>Biceps Day</h1>
+        <h2>BUILD BIGGER, STRONGER ARMS</h2>
+
+        <!--
+            HOW TO ADD A VIDEO:
+            1. Open the YouTube video you like.
+            2. Copy the ID from the link:  youtube.com/watch?v=XXXXXXXXXXX  -> XXXXXXXXXXX
+            3. Paste it into data-yt="" on that exercise's video-wrap below.
+        -->
+
+        <h3 class="section-title">Long Head (Peak)</h3>
+        <div class="Chest_page">
+            <div>
+                <div class="video-wrap" data-yt="" data-search="incline dumbbell curl proper form"></div>
+                <h2>Incline Dumbbell Curl</h2>
+                <h3>Target: Biceps Long Head Stretch</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Sit back on a 45-60 degree incline bench.</li>
+                    <li>Let your arms hang straight down.</li>
+                    <li>Curl the dumbbells up without moving your elbows.</li>
+                    <li>Lower slowly to a full stretch.</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="video-wrap" data-yt="" data-search="barbell curl proper form"></div>
+                <h2>Barbell Curl</h2>
+                <h3>Target: Overall Biceps Mass</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Stand holding a bar with palms facing forward.</li>
+                    <li>Keep elbows close to your sides.</li>
+                    <li>Curl the bar up to shoulder height.</li>
+                    <li>Lower under control without swinging.</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="video-wrap" data-yt="" data-search="alternating dumbbell curl proper form"></div>
+                <h2>Dumbbell Curl</h2>
+                <h3>Target: Biceps Size and Balance</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Stand with dumbbells at your sides.</li>
+                    <li>Curl one arm up while rotating the palm upward.</li>
+                    <li>Squeeze at the top.</li>
+                    <li>Lower slowly and alternate arms.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 class="section-title">Short Head (Width)</h3>
+        <div class="Chest_page">
+            <div>
+                <div class="video-wrap" data-yt="" data-search="preacher curl proper form"></div>
+                <h2>Preacher Curl</h2>
+                <h3>Target: Biceps Short Head</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Rest your upper arms flat on the preacher pad.</li>
+                    <li>Curl the weight up toward your shoulders.</li>
+                    <li>Pause and squeeze at the top.</li>
+                    <li>Lower slowly until arms are almost straight.</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="video-wrap" data-yt="" data-search="concentration curl proper form"></div>
+                <h2>Concentration Curl</h2>
+                <h3>Target: Biceps Peak and Isolation</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Sit and brace your elbow against your inner thigh.</li>
+                    <li>Curl the dumbbell up toward your shoulder.</li>
+                    <li>Squeeze hard at the top.</li>
+                    <li>Lower slowly and repeat on both sides.</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="video-wrap" data-yt="" data-search="cable bicep curl proper form"></div>
+                <h2>Cable Curl</h2>
+                <h3>Target: Constant Biceps Tension</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Stand facing a low cable with a straight bar.</li>
+                    <li>Keep elbows pinned to your sides.</li>
+                    <li>Curl the bar up to chest height.</li>
+                    <li>Lower slowly against the cable.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 class="section-title">Brachialis &amp; Forearms</h3>
+        <div class="Chest_page">
+            <div>
+                <div class="video-wrap" data-yt="" data-search="hammer curl proper form"></div>
+                <h2>Hammer Curl</h2>
+                <h3>Target: Brachialis and Forearms</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Hold dumbbells with palms facing each other.</li>
+                    <li>Curl up without turning your wrists.</li>
+                    <li>Keep your elbows by your sides.</li>
+                    <li>Lower slowly to the start.</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="video-wrap" data-yt="" data-search="reverse barbell curl proper form"></div>
+                <h2>Reverse Barbell Curl</h2>
+                <h3>Target: Forearms and Brachialis</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Hold a bar with an overhand grip.</li>
+                    <li>Keep your wrists straight.</li>
+                    <li>Curl the bar up to shoulder height.</li>
+                    <li>Lower slowly with control.</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="video-wrap" data-yt="" data-search="zottman curl proper form"></div>
+                <h2>Zottman Curl</h2>
+                <h3>Target: Biceps and Forearm Strength</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Curl the dumbbells up with palms facing up.</li>
+                    <li>Rotate your palms to face down at the top.</li>
+                    <li>Lower slowly in the overhand grip.</li>
+                    <li>Rotate back to palms up at the bottom.</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Social Links -->
+    <section>
+        <div class="social">
+            <a href="#" class="ico"><i class='bx bxl-facebook-circle'></i></a>
+            <a href="#" class="ico"><i class='bx bxl-instagram'></i></a>
+            <a href="#" class="ico"><i class='bx bxl-twitter'></i></a>
+            <a href="#" class="ico"><i class='bx bxl-github'></i></a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="last">
+            <div class="copy">
+                <h2>&copy; 2026 Royal Fitness | Gym Street, Wolkite</h2>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Builds a YouTube player for each exercise.
+        // If no video ID is set yet, shows a "Watch on YouTube" button instead.
+        document.querySelectorAll('.video-wrap').forEach(function (box) {
+            var id = box.dataset.yt.trim();
+            var title = box.nextElementSibling ? box.nextElementSibling.textContent : 'Exercise video';
+
+            if (id) {
+                var iframe = document.createElement('iframe');
+                iframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?rel=0&modestbranding=1';
+                iframe.title = title;
+                iframe.loading = 'lazy';
+                iframe.allow = 'accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                iframe.allowFullscreen = true;
+                box.appendChild(iframe);
+            } else {
+                var a = document.createElement('a');
+                a.className = 'video-fallback';
+                a.target = '_blank';
+                a.rel = 'noopener';
+                a.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(box.dataset.search);
+                a.innerHTML = "<i class='bx bxl-youtube'></i><span>Watch on YouTube</span>";
+                box.appendChild(a);
+            }
+        });
+    </script>
+
+</body>
+</html>

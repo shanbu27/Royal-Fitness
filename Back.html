@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="stu.css">
+    <title>Royal Fitness - Back Day</title>
+
+    <style>
+        /* Responsive 16:9 YouTube player */
+        .video-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #111;
+        }
+        .video-wrap iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        /* Fallback shown until a video ID is added */
+        .video-fallback {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            padding: 10px;
+        }
+        /* ---------- Horizontal navbar ---------- */
+        .head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 15px 5%;
+            background: #000;
+            border-bottom: 3px solid #ff4500;
+        }
+        .head .Log {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            font-size: 1.6rem;
+            font-weight: 800;
+        }
+        .head .Log span { color: #ff4500; }
+        .head .Log .img { height: 50px; width: auto; }
+        .navbar ul {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar li { display: inline-block; }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+            transition: color .2s;
+        }
+        .navbar a:hover { color: #ff4500; }
+
+        /* ---------- Workout showcase ---------- */
+        .Chest_welcome { padding: 40px 5%; text-align: center; }
+        .Chest_welcome > h1 { font-size: 2.8rem; margin-bottom: 5px; }
+        .Chest_welcome > h2 { color: #ff4500; letter-spacing: 3px; margin-bottom: 30px; }
+
+        .section-title {
+            max-width: 1400px;
+            margin: 50px auto 20px;
+            text-align: left;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            color: #fff;
+            border-left: 6px solid #ff4500;
+            padding-left: 15px;
+        }
+        .Chest_page {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .Chest_page > div {
+            background: rgba(0, 0, 0, .75);
+            border: 1px solid #2a2a2a;
+            border-top: 4px solid #ff4500;
+            border-radius: 14px;
+            padding: 18px;
+            text-align: left;
+            transition: transform .25s, box-shadow .25s;
+        }
+        .Chest_page > div:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 30px rgba(255, 69, 0, .25);
+        }
+        .Chest_page h2 { margin: 16px 0 4px; font-size: 1.5rem; color: #fff; }
+        .Chest_page h3 { margin: 0 0 12px; font-size: 1rem; color: #ff4500; font-weight: 600; }
+        .Chest_page p { margin: 0 0 6px; color: #fff; }
+        .Chest_page ul { margin: 0; padding-left: 20px; color: #ddd; line-height: 1.7; }
+
+        .video-fallback i { font-size: 3rem; color: #ff0000; }
+        .video-fallback span {
+            background: #ff0000;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body class="chestday backday">
+
+    <!-- Header & Navbar -->
+    <div class="head">
+        <div class="Log">
+            <img src="log.png" alt="Royal Fitness Logo" class="img">
+            Royal <span>Fitness</span>
+        </div>
+
+        <div class="navbar">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="Service.html">SERVICE</a></li>
+                <li><a href="Contact.html">CONTACT</a></li>
+                <li><a href="Price.html">PRICE</a></li>
+                <li><a href="Schedule.html">SCHEDULE</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="Chest_welcome">
+        <h1>Back Day</h1>
+        <h2>BUILD A WIDER, THICKER BACK</h2>
+
+        <!--
+            HOW TO ADD A VIDEO:
+            1. Open the YouTube video you like.
+            2. Copy the ID from the link:  youtube.com/watch?v=XXXXXXXXXXX  -> XXXXXXXXXXX
+            3. Paste it into data-yt="" on that exercise's video-wrap below.
+        -->
+
+        <h3 class="section-title">Lats (Width)</h3>
+        <div class="Chest_page">
+            <div>
+                <div class="video-wrap" data-yt="" data-search="lat pulldown proper form"></div>
+                <h2>Lat Pulldown</h2>
+                <h3>Target: Lats and Back Width</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Sit with thighs secured under the pads.</li>
+                    <li>Grip the bar wider than shoulder-width.</li>
+                    <li>Pull the bar down to your upper chest, elbows down.</li>
+                    <li>Return slowly until arms are fully stretched.</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="video-wrap" data-yt="" data-search="pull up proper form beginner"></div>
+                <h2>Pull-Ups</h2>
+                <h3>Target: Lats and Upper Back</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Hang from the bar with palms facing away.</li>
+                    <li>Pull your chest up toward the bar.</li>
+                    <li>Keep your core tight and avoid swinging.</li>
+                    <li>Lower slowly to a full hang.</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="video-wrap" data-yt="" data-search="straight arm pulldown form"></div>
+                <h2>Straight-Arm Pulldown</h2>
+                <h3>Target: Lat Isolation</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Stand facing a high cable with a bar or rope.</li>
+                    <li>Keep arms nearly straight and chest up.</li>
+                    <li>Sweep the bar down to your thighs.</li>
+                    <li>Return slowly while feeling the lats stretch.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 class="section-title">Mid Back (Thickness)</h3>
+        <div class="Chest_page">
+            <div>
+                <div class="video-wrap" data-yt="" data-search="barbell bent over row proper form"></div>
+                <h2>Barbell Bent-Over Row</h2>
+                <h3>Target: Mid Back Mass and Strength</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Hinge forward at the hips with a flat back.</li>
+                    <li>Grip the bar just outside your knees.</li>
+                    <li>Pull the bar to your lower ribs.</li>
+                    <li>Lower with control without rounding your back.</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="video-wrap" data-yt="" data-search="seated cable row proper form"></div>
+                <h2>Seated Cable Row</h2>
+                <h3>Target: Mid Back Thickness</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Sit tall with knees slightly bent.</li>
+                    <li>Pull the handle to your stomach.</li>
+                    <li>Squeeze your shoulder blades together.</li>
+                    <li>Extend arms slowly without leaning too far.</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="video-wrap" data-yt="" data-search="one arm dumbbell row proper form"></div>
+                <h2>One-Arm Dumbbell Row</h2>
+                <h3>Target: Lats and Mid Back</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Place one hand and knee on a flat bench.</li>
+                    <li>Hold a dumbbell with your other arm hanging down.</li>
+                    <li>Pull the dumbbell toward your hip.</li>
+                    <li>Lower slowly and repeat on both sides.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 class="section-title">Lower Back &amp; Traps</h3>
+        <div class="Chest_page">
+            <div>
+                <div class="video-wrap" data-yt="" data-search="deadlift proper form beginner"></div>
+                <h2>Deadlift</h2>
+                <h3>Target: Lower Back, Glutes and Full Back</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Stand with the bar over your mid-foot.</li>
+                    <li>Grip the bar and keep your back flat.</li>
+                    <li>Drive through your feet and stand tall.</li>
+                    <li>Lower the bar under control along your legs.</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="video-wrap" data-yt="" data-search="back extension proper form"></div>
+                <h2>Back Extension</h2>
+                <h3>Target: Lower Back Strength</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Secure your feet and hips on the bench.</li>
+                    <li>Cross your arms over your chest.</li>
+                    <li>Lower your torso with a straight spine.</li>
+                    <li>Raise back up until your body is in a line.</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="video-wrap" data-yt="" data-search="dumbbell shrug proper form"></div>
+                <h2>Dumbbell Shrugs</h2>
+                <h3>Target: Upper Traps</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Stand holding dumbbells at your sides.</li>
+                    <li>Lift your shoulders straight up toward your ears.</li>
+                    <li>Pause and squeeze at the top.</li>
+                    <li>Lower slowly without rolling the shoulders.</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Social Links -->
+    <section>
+        <div class="social">
+            <a href="#" class="ico"><i class='bx bxl-facebook-circle'></i></a>
+            <a href="#" class="ico"><i class='bx bxl-instagram'></i></a>
+            <a href="#" class="ico"><i class='bx bxl-twitter'></i></a>
+            <a href="#" class="ico"><i class='bx bxl-github'></i></a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="last">
+            <div class="copy">
+                <h2>&copy; 2026 Royal Fitness | Gym Street, Wolkite</h2>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Builds a YouTube player for each exercise.
+        // If no video ID is set yet, shows a "Watch on YouTube" button instead.
+        document.querySelectorAll('.video-wrap').forEach(function (box) {
+            var id = box.dataset.yt.trim();
+            var title = box.nextElementSibling ? box.nextElementSibling.textContent : 'Exercise video';
+
+            if (id) {
+                var iframe = document.createElement('iframe');
+                iframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?rel=0&modestbranding=1';
+                iframe.title = title;
+                iframe.loading = 'lazy';
+                iframe.allow = 'accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                iframe.allowFullscreen = true;
+                box.appendChild(iframe);
+            } else {
+                var a = document.createElement('a');
+                a.className = 'video-fallback';
+                a.target = '_blank';
+                a.rel = 'noopener';
+                a.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(box.dataset.search);
+                a.innerHTML = "<i class='bx bxl-youtube'></i><span>Watch on YouTube</span>";
+                box.appendChild(a);
+            }
+        });
+    </script>
+
+</body>
+</html>

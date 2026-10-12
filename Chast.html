@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="stu.css">
+    <title>Royal Fitness - Chest Day</title>
+
+    <style>
+        /* Responsive 16:9 YouTube player */
+        .video-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #111;
+        }
+        .video-wrap iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        /* Fallback shown until a video ID is added */
+        .video-fallback {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            padding: 10px;
+        }
+        /* ---------- Horizontal navbar ---------- */
+        .head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 15px 5%;
+            background: #000;
+            border-bottom: 3px solid #ff4500;
+        }
+        .head .Log {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            font-size: 1.6rem;
+            font-weight: 800;
+        }
+        .head .Log span { color: #ff4500; }
+        .head .Log .img { height: 50px; width: auto; }
+        .navbar ul {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar li { display: inline-block; }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+            transition: color .2s;
+        }
+        .navbar a:hover { color: #ff4500; }
+
+        /* ---------- Workout showcase ---------- */
+        .Chest_welcome { padding: 40px 5%; text-align: center; }
+        .Chest_welcome > h1 { font-size: 2.8rem; margin-bottom: 5px; }
+        .Chest_welcome > h2 { color: #ff4500; letter-spacing: 3px; margin-bottom: 30px; }
+
+        .section-title {
+            max-width: 1400px;
+            margin: 50px auto 20px;
+            text-align: left;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            color: #fff;
+            border-left: 6px solid #ff4500;
+            padding-left: 15px;
+        }
+        .Chest_page {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .Chest_page > div {
+            background: rgba(0, 0, 0, .75);
+            border: 1px solid #2a2a2a;
+            border-top: 4px solid #ff4500;
+            border-radius: 14px;
+            padding: 18px;
+            text-align: left;
+            transition: transform .25s, box-shadow .25s;
+        }
+        .Chest_page > div:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 30px rgba(255, 69, 0, .25);
+        }
+        .Chest_page h2 { margin: 16px 0 4px; font-size: 1.5rem; color: #fff; }
+        .Chest_page h3 { margin: 0 0 12px; font-size: 1rem; color: #ff4500; font-weight: 600; }
+        .Chest_page p { margin: 0 0 6px; color: #fff; }
+        .Chest_page ul { margin: 0; padding-left: 20px; color: #ddd; line-height: 1.7; }
+
+        .video-fallback i { font-size: 3rem; color: #ff0000; }
+        .video-fallback span {
+            background: #ff0000;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body class="chestday">
+
+    <!-- Header & Navbar -->
+    <div class="head">
+        <div class="Log">
+            <img src="log.png" alt="Royal Fitness Logo" class="img">
+            Royal <span>Fitness</span>
+        </div>
+
+        <div class="navbar">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="Service.html">SERVICE</a></li>
+                <li><a href="Contact.html">CONTACT</a></li>
+                <li><a href="Price.html">PRICE</a></li>
+                <li><a href="Schedule.html">SCHEDULE</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="Chest_welcome">
+        <h1>Chest Day</h1>
+        <h2>BUILD A STRONGER CHEST</h2>
+
+        <!--
+            HOW TO ADD A VIDEO:
+            1. Open the YouTube video you like.
+            2. Copy the ID from the link:  youtube.com/watch?v=XXXXXXXXXXX  -> XXXXXXXXXXX
+            3. Paste it into data-yt="" on that exercise's video-wrap below.
+        -->
+
+        <!-- Upper Chest Section -->
+        <h3 class="section-title">Upper Chest</h3>
+        <div class="Chest_page">
+            <div>
+                <div class="video-wrap" data-yt="" data-search="incline dumbbell press proper form"></div>
+                <h2>Incline Dumbbell Press</h2>
+                <h3>Target: Upper Chest Mass and Strength</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Sit on an incline bench set to 30-45 degrees.</li>
+                    <li>Hold dumbbells at chest level with palms facing forward.</li>
+                    <li>Press upward until arms are extended.</li>
+                    <li>Lower slowly and in a controlled motion.</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="video-wrap" data-yt="" data-search="low to high cable fly upper chest form"></div>
+                <h2>Low-to-High Cable Fly</h2>
+                <h3>Target: Upper Chest Isolation</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Stand between two low cable pulleys.</li>
+                    <li>Grasp handles with palms facing forward.</li>
+                    <li>Bring hands together upward toward eye level.</li>
+                    <li>Maintain a slight bend in the elbows throughout.</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="video-wrap" data-yt="" data-search="incline barbell bench press proper form"></div>
+                <h2>Incline Barbell Bench Press</h2>
+                <h3>Target: Upper Chest Mass and Strength</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Lie on an incline bench under the barbell.</li>
+                    <li>Grip the bar slightly wider than shoulder-width.</li>
+                    <li>Lower the bar smoothly to your upper chest.</li>
+                    <li>Press the bar up explosively while keeping feet planted.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Middle Chest Section -->
+        <h3 class="section-title">Middle Chest</h3>
+        <div class="Chest_page">
+            <div>
+                <div class="video-wrap" data-yt="" data-search="barbell bench press proper form beginner"></div>
+                <h2>Barbell Bench Press</h2>
+                <h3>Target: Middle Chest Overall Mass</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Lie flat on the bench with feet firmly planted.</li>
+                    <li>Grip bar slightly wider than shoulder-width.</li>
+                    <li>Lower bar slowly to mid-chest.</li>
+                    <li>Press upwards until arms are locked out.</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="video-wrap" data-yt="" data-search="flat dumbbell fly proper form"></div>
+                <h2>Flat Dumbbell Fly</h2>
+                <h3>Target: Middle Chest Stretch &amp; Definition</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Lie on a flat bench holding dumbbells above chest.</li>
+                    <li>Lower weights out to sides with slight elbow bend.</li>
+                    <li>Squeeze chest to bring dumbbells back together.</li>
+                    <li>Control the weight slowly on the descent.</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="video-wrap" data-yt="" data-search="push up proper form beginner"></div>
+                <h2>Push-Ups</h2>
+                <h3>Target: Middle Chest &amp; Core Stability</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Place hands shoulder-width apart on the floor.</li>
+                    <li>Keep body straight from head to heels.</li>
+                    <li>Lower chest until almost touching the ground.</li>
+                    <li>Push body back up to starting position.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Lower Chest Section -->
+        <h3 class="section-title">Lower Chest</h3>
+        <div class="Chest_page">
+            <div>
+                <div class="video-wrap" data-yt="" data-search="high to low cable fly lower chest form"></div>
+                <h2>High-to-Low Cable Fly</h2>
+                <h3>Target: Lower Chest Definition</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Attach pulleys to the highest setting.</li>
+                    <li>Pull handles downward and together in front of waist.</li>
+                    <li>Pause and squeeze lower chest at the bottom.</li>
+                    <li>Return slowly to starting height.</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="video-wrap" data-yt="" data-search="chest dips proper form"></div>
+                <h2>Chest Dips</h2>
+                <h3>Target: Lower Chest &amp; Triceps</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Grasp parallel bars and support your body weight.</li>
+                    <li>Lean torso forward slightly to target chest.</li>
+                    <li>Lower body until elbows are bent at 90 degrees.</li>
+                    <li>Push back up to full arm extension.</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="video-wrap" data-yt="" data-search="decline dumbbell press proper form"></div>
+                <h2>Decline Dumbbell Press</h2>
+                <h3>Target: Lower Chest Mass</h3>
+                <p><strong>How to do it:</strong></p>
+                <ul>
+                    <li>Secure feet at end of decline bench and lie back.</li>
+                    <li>Hold dumbbells at chest level.</li>
+                    <li>Press dumbbells upward over lower chest.</li>
+                    <li>Lower controlled back to starting position.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Social Links -->
+    <section>
+        <div class="social">
+            <a href="#" class="ico"><i class='bx bxl-facebook-circle'></i></a>
+            <a href="#" class="ico"><i class='bx bxl-instagram'></i></a>
+            <a href="#" class="ico"><i class='bx bxl-twitter'></i></a>
+            <a href="#" class="ico"><i class='bx bxl-github'></i></a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="last">
+            <div class="copy">
+                <h2>&copy; 2026 Royal Fitness | Gym Street, Wolkite</h2>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Builds a YouTube player for each exercise.
+        // If no video ID is set yet, shows a "Watch on YouTube" button instead.
+        document.querySelectorAll('.video-wrap').forEach(function (box) {
+            var id = box.dataset.yt.trim();
+            var title = box.nextElementSibling ? box.nextElementSibling.textContent : 'Exercise video';
+
+            if (id) {
+                var iframe = document.createElement('iframe');
+                iframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?rel=0&modestbranding=1';
+                iframe.title = title;
+                iframe.loading = 'lazy';
+                iframe.allow = 'accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                iframe.allowFullscreen = true;
+                box.appendChild(iframe);
+            } else {
+                var a = document.createElement('a');
+                a.className = 'video-fallback';
+                a.target = '_blank';
+                a.rel = 'noopener';
+                a.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(box.dataset.search);
+                a.innerHTML = "<i class='bx bxl-youtube'></i><span>Watch on YouTube</span>";
+                box.appendChild(a);
+            }
+        });
+    </script>
+
+</body>
+</html>

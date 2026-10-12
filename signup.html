@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="stu.css">
+    <title>Join the Elite | Royal Fitness Signup</title>
+</head>
+<body class="signup-page">
+
+<!-- Unified Header -->
+<header class="header">
+    <div class="logo">
+        <img src="log.png" alt="Royal Fitness Logo" class="nav-img">
+        Royal <span>Fitness</span>
+    </div>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="Service.html">SERVICE</a></li>
+            <li><a href="Contact.html">CONTACT</a></li>
+            <li><a href="Price.html">PRICE</a></li>
+            <li><a href="Schedule.html">SCHEDULE</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="signup-wrapper">
+    <div class="signup-card">
+        <div class="signup-header">
+            <h1>JOIN <span>ROYAL FITNESS</span></h1>
+            <p>Start your transformation journey today.</p>
+        </div>
+
+        <form class="signup-form">
+            <!-- Step 1: Personal Details -->
+            <div class="form-section">
+                <h3><i class='bx bxs-user-detail'></i> Step 1: Personal Detail</h3>
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Enter your Full Name" required>
+                </div>
+                
+                <div class="row">
+                    <div class="input-group">
+                        <label>Gender</label>
+                        <select class="select-field">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Date of Birth</label>
+                        <input type="date" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="email@example.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Phone Number</label>
+                        <input type="tel" placeholder="+251..." required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Account Security -->
+            <div class="form-section">
+                <h3><i class='bx bxs-lock-alt'></i> Step 2: Account Security</h3>
+                <div class="input-group">
+                    <label>Username</label>
+                    <input type="text" placeholder="Choose a unique username" required>
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input type="password" placeholder="Min. 8 characters" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Confirm Password</label>
+                        <input type="password" placeholder="Repeat password" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Health & Fitness -->
+            <div class="form-section">
+                <h3><i class='bx bxs-dumbbell'></i> Step 3: Health & Fitness</h3>
+                <div class="row">
+                    <div class="input-group">
+                        <label>Choose Your Goal</label>
+                        <select class="select-field">
+                            <option value="weight-loss">Weight Loss</option>
+                            <option value="muscle-gain">Muscle Gain</option>
+                            <option value="cardio">Cardio Training</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Emergency Number</label>
+                        <input type="tel" placeholder="Contact in emergency">
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="signup-btn">Create Your Account</button>
+            <div class="login-redirect">
+                <p>Already have an Account? <a href="login.html">Login</a></p>
+            </div>
+        </form>
+    </div>
+</main>
+
+<footer class="footer-section">
+    <div class="social-icons">
+        <a href="#" class="ico"><i class='bx bxl-facebook-circle'></i></a>
+        <a href="#" class="ico"><i class='bx bxl-instagram'></i></a>
+        <a href="#" class="ico"><i class='bx bxl-twitter' ></i></a>
+        <a href="#" class="ico"><i class='bx bxl-github' ></i></a>
+    </div>
+    <p>&copy; 2026 Royal Fitness | Gym Street, Wolkite</p>
+</footer>
+
+</body>
+</html>

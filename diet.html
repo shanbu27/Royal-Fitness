@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="stu.css">
+    <title>Nutrition &amp; Diet | Royal Fitness</title>
+
+    <style>
+        :root { --orange: #ff4500; --card: rgba(0,0,0,.78); --line: #2a2a2a; }
+
+        /* ---------- Header / navbar ---------- */
+        .header {
+            display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: 15px; padding: 15px 5%;
+            background: #000; border-bottom: 3px solid var(--orange);
+        }
+        .header .logo { display: flex; align-items: center; gap: 10px; color: #fff; font-size: 1.6rem; font-weight: 800; }
+        .header .logo span { color: var(--orange); }
+        .header .nav-img { height: 50px; width: auto; }
+        .nav-links { display: flex; flex-wrap: wrap; gap: 40px; list-style: none; margin: 0; padding: 0; }
+        .nav-links a { color: #fff; text-decoration: none; font-weight: 800; font-size: 1.1rem; text-transform: uppercase; transition: color .2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--orange); }
+
+        /* ---------- Layout ---------- */
+        .diet-container { max-width: 1250px; margin: 0 auto; padding: 40px 5% 60px; color: #fff; }
+        .diet-header { text-align: center; margin-bottom: 40px; }
+        .diet-header h1 { font-size: 3rem; margin: 0 0 8px; }
+        .diet-header h1 span, .section-title span { color: var(--orange); }
+        .diet-header p { color: #ccc; font-size: 1.1rem; margin: 0; }
+        .section-title { font-size: 1.9rem; margin: 60px 0 10px; text-transform: uppercase; border-left: 6px solid var(--orange); padding-left: 15px; }
+        .section-sub { color: #bbb; margin: 0 0 25px 21px; }
+
+        .macro-grid, .meal-plan-section, .tips-grid, .swap-grid {
+            display: grid; gap: 22px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+        .macro-card, .meal-card, .tip-card, .swap-card, .calc-box, .result-box {
+            background: var(--card); border: 1px solid var(--line);
+            border-top: 4px solid var(--orange); border-radius: 14px; padding: 22px;
+        }
+        .macro-card { text-align: center; transition: transform .25s, box-shadow .25s; }
+        .macro-card:hover, .meal-card:hover { transform: translateY(-5px); box-shadow: 0 10px 28px rgba(255,69,0,.25); }
+        .macro-card i, .tip-card i { font-size: 2.6rem; color: var(--orange); }
+        .macro-card h3, .tip-card h3, .swap-card h3 { margin: 8px 0; }
+        .macro-card .big { font-size: 1.5rem; font-weight: 800; color: var(--orange); margin: 4px 0; }
+        .macro-card p, .tip-card p, .swap-card p { color: #ccc; margin: 6px 0 0; line-height: 1.6; }
+        .macro-card small { color: #999; display: block; margin-top: 8px; }
+
+        /* ---------- Calculator ---------- */
+        .calc-wrap { display: grid; gap: 22px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .calc-box label { display: block; font-weight: 600; margin: 12px 0 5px; }
+        .calc-box input, .calc-box select {
+            width: 100%; padding: 11px; border-radius: 8px; border: 1px solid #444;
+            background: #111; color: #fff; font-size: 1rem; box-sizing: border-box;
+        }
+        .calc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .diet-btn {
+            display: inline-block; margin-top: 18px; padding: 13px 28px; border: 0; cursor: pointer;
+            background: var(--orange); color: #fff; font-weight: 800; border-radius: 30px;
+            text-decoration: none; font-size: 1rem; transition: transform .2s, background .2s;
+        }
+        .diet-btn:hover { background: #ff6a33; transform: translateY(-2px); }
+        .result-box { display: flex; flex-direction: column; justify-content: center; text-align: center; }
+        .result-box .cal { font-size: 3.2rem; font-weight: 800; color: var(--orange); line-height: 1; }
+        .result-box .hint { color: #bbb; margin: 8px 0 18px; }
+        .result-macros { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .result-macros div { background: #111; border-radius: 10px; padding: 12px 6px; }
+        .result-macros b { display: block; font-size: 1.4rem; }
+        .result-macros span { color: #aaa; font-size: .85rem; }
+        .calc-error { color: #ff8a65; margin-top: 10px; min-height: 1.2em; }
+
+        /* ---------- Meal plan tabs ---------- */
+        .tabs { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 25px 21px; }
+        .tab-btn {
+            padding: 11px 24px; border-radius: 30px; border: 2px solid var(--orange);
+            background: transparent; color: #fff; font-weight: 700; cursor: pointer; font-size: 1rem;
+        }
+        .tab-btn.on { background: var(--orange); }
+        .plan { display: none; }
+        .plan.on { display: block; }
+        .plan-total { margin: 0 0 18px 21px; color: #ddd; }
+        .plan-total b { color: var(--orange); }
+        .meal-time { display: inline-block; background: var(--orange); color: #fff; font-size: .8rem; font-weight: 800; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; }
+        .meal-card h4 { margin: 12px 0 6px; font-size: 1.25rem; }
+        .meal-card p { color: #ccc; margin: 0 0 12px; line-height: 1.55; }
+        .calories { font-weight: 800; color: var(--orange); }
+        .protein { color: #aaa; margin-left: 10px; font-size: .9rem; }
+
+        /* ---------- Misc ---------- */
+        .swap-card h3 { color: var(--orange); }
+        .diet-cta { margin-top: 60px; text-align: center; padding: 40px 20px; border-radius: 16px; background: linear-gradient(135deg, rgba(255,69,0,.25), rgba(0,0,0,.8)); border: 1px solid var(--orange); }
+        .diet-cta h3 { font-size: 1.9rem; margin: 0 0 8px; }
+        .diet-cta p { color: #ddd; margin: 0; }
+        .disclaimer { color: #888; font-size: .85rem; text-align: center; margin-top: 30px; }
+
+        footer { text-align: center; padding: 25px 5%; background: #000; border-top: 3px solid var(--orange); color: #fff; }
+        footer .social { display: flex; justify-content: center; gap: 18px; margin-bottom: 12px; }
+        footer .ico { color: #fff; font-size: 1.8rem; text-decoration: none; transition: color .2s; }
+        footer .ico:hover { color: var(--orange); }
+        footer .copy p { margin: 0; }
+    </style>
+</head>
+<body class="diet-page">
+
+    <header class="header">
+        <div class="logo">
+            <img src="log.png" alt="Royal Fitness Logo" class="nav-img">
+            Royal <span>Fitness</span>
+        </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="Service.html">SERVICE</a></li>
+                <li><a href="Contact.html">CONTACT</a></li>
+                <li><a href="Price.html">PRICE</a></li>
+                <li><a href="Schedule.html">SCHEDULE</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="diet-container">
+
+        <div class="diet-header">
+            <h1>FUEL YOUR <span>BODY</span></h1>
+            <p>Training is only 30% of the work. The other 70% happens in the kitchen.</p>
+        </div>
+
+        <!-- Calculator -->
+        <h2 class="section-title" style="margin-top:0">YOUR <span>DAILY TARGETS</span></h2>
+        <p class="section-sub">Enter your details to get a calorie and macro target that fits your goal.</p>
+
+        <div class="calc-wrap">
+            <div class="calc-box">
+                <div class="calc-row">
+                    <div>
+                        <label for="sex">Sex</label>
+                        <select id="sex"><option value="m">Male</option><option value="f">Female</option></select>
+                    </div>
+                    <div>
+                        <label for="age">Age</label>
+                        <input type="number" id="age" min="14" max="90" placeholder="e.g. 22">
+                    </div>
+                </div>
+                <div class="calc-row">
+                    <div>
+                        <label for="weight">Weight (kg)</label>
+                        <input type="number" id="weight" min="30" max="250" placeholder="e.g. 70">
+                    </div>
+                    <div>
+                        <label for="height">Height (cm)</label>
+                        <input type="number" id="height" min="120" max="230" placeholder="e.g. 175">
+                    </div>
+                </div>
+                <label for="activity">Activity level</label>
+                <select id="activity">
+                    <option value="1.2">Sedentary (little exercise)</option>
+                    <option value="1.375">Light (1-3 workouts/week)</option>
+                    <option value="1.55" selected>Moderate (3-5 workouts/week)</option>
+                    <option value="1.725">Very active (6-7 workouts/week)</option>
+                </select>
+                <label for="goal">Goal</label>
+                <select id="goal">
+                    <option value="gain">Build muscle (gain weight)</option>
+                    <option value="loss">Lose fat</option>
+                    <option value="keep">Maintain weight</option>
+                </select>
+                <button class="diet-btn" id="calcBtn" type="button">Calculate</button>
+                <div class="calc-error" id="calcError"></div>
+            </div>
+
+            <div class="result-box">
+                <div class="cal" id="rCal">---</div>
+                <div class="hint">calories per day</div>
+                <div class="result-macros">
+                    <div><b id="rP">--</b><span>Protein (g)</span></div>
+                    <div><b id="rC">--</b><span>Carbs (g)</span></div>
+                    <div><b id="rF">--</b><span>Fats (g)</span></div>
+                </div>
+                <p class="hint" style="margin-top:18px" id="rNote">Fill in the form and press Calculate.</p>
+            </div>
+        </div>
+
+        <!-- Macros -->
+        <h2 class="section-title">THE <span>MACROS</span></h2>
+        <p class="section-sub">Three nutrients drive your results. Here is what each one does and how much you need.</p>
+        <div class="macro-grid">
+            <div class="macro-card">
+                <i class='bx bxs-hot'></i>
+                <h3>Proteins</h3>
+                <div class="big">1.6 - 2.2 g / kg</div>
+                <p>Repairs and builds muscle. Spread it across 3-5 meals, about 25-40 g each.</p>
+                <small>Eggs, chicken, fish, beef, lentils, yogurt, whey</small>
+            </div>
+            <div class="macro-card">
+                <i class='bx bxs-bolt'></i>
+                <h3>Carbs</h3>
+                <div class="big">3 - 6 g / kg</div>
+                <p>The fuel for heavy sessions. Eat more on training days, especially before and after.</p>
+                <small>Oats, rice, potatoes, teff injera, bread, fruit</small>
+            </div>
+            <div class="macro-card">
+                <i class='bx bxs-droplet'></i>
+                <h3>Fats</h3>
+                <div class="big">20 - 30% of calories</div>
+                <p>Supports hormones, joints and brain health. Keep fats mostly unsaturated.</p>
+                <small>Nuts, avocado, olive oil, eggs, fatty fish, seeds</small>
+            </div>
+        </div>
+
+        <!-- Meal plans -->
+        <h2 class="section-title">SAMPLE <span>MEAL PLANS</span></h2>
+        <p class="section-sub">Pick your goal. Portions are cooked weights and can be scaled to your own targets.</p>
+
+        <div class="tabs" role="tablist">
+            <button class="tab-btn on" data-plan="gain" type="button">Build Muscle</button>
+            <button class="tab-btn" data-plan="loss" type="button">Lose Fat</button>
+            <button class="tab-btn" data-plan="keep" type="button">Maintain</button>
+        </div>
+
+        <!-- Build muscle -->
+        <div class="plan on" id="plan-gain">
+            <p class="plan-total">Daily total: <b>about 3,000 kcal</b> | Protein: <b>about 170 g</b></p>
+            <div class="meal-plan-section">
+                <div class="meal-card"><div class="meal-time">Breakfast</div><h4>Power Oats &amp; Eggs</h4><p>80 g oats cooked in milk, 1 banana, 1 tbsp peanut butter, 3 whole eggs.</p><span class="calories">750 kcal</span><span class="protein">45 g protein</span></div>
+                <div class="meal-card"><div class="meal-time">Snack</div><h4>Yogurt &amp; Nuts</h4><p>250 g plain yogurt, 1 tbsp honey, a handful of mixed nuts.</p><span class="calories">350 kcal</span><span class="protein">20 g protein</span></div>
+                <div class="meal-card"><div class="meal-time">Lunch</div><h4>Chicken, Rice &amp; Veg</h4><p>200 g chicken breast, 250 g cooked rice, steamed vegetables, 1 tbsp olive oil.</p><span class="calories">850 kcal</span><span class="protein">55 g protein</span></div>
+                <div class="meal-card"><div class="meal-time">Pre-Workout</div><h4>Quick Carbs</h4><p>Bread with peanut butter and 1 banana, 60-90 minutes before training.</p><span class="calories">300 kcal</span><span class="protein">9 g protein</span></div>
+                <div class="meal-card"><div class="meal-time">Dinner</div><h4>Beef or Fish &amp; Potatoes</h4><p>180 g lean beef or fish, 250 g potatoes or sweet potato, large salad.</p><span class="calories">750 kcal</span><span class="protein">45 g protein</span></div>
+            </div>
+        </div>
+
+        <!-- Lose fat -->
+        <div class="plan" id="plan-loss">
+            <p class="plan-total">Daily total: <b>about 1,800 kcal</b> | Protein: <b>about 150 g</b></p>
+            <div class="meal-plan-section">
+                <div class="meal-card"><div class="meal-time">Breakfast</div><h4>Veggie Omelette</h4><p>3 eggs with spinach, tomato and onion, plus 1 slice whole-grain bread.</p><span class="calories">400 kcal</span><span class="protein">25 g protein</span></div>
+                <div class="meal-card"><div class="meal-time">Snack</div><h4>Yogurt &amp; Berries</h4><p>200 g plain low-fat yogurt with a handful of berries or 1 apple.</p><span class="calories">200 kcal</span><span class="protein">17 g protein</span></div>
+                <div class="meal-card"><div class="meal-time">Lunch</div><h4>Grilled Chicken Bowl</h4><p>180 g chicken breast, 100 g cooked brown rice, big mixed salad, lemon dressing.</p><span class="calories">500 kcal</span><span class="protein">50 g protein</span></div>
+                <div class="meal-card"><div class="meal-time">Pre-Workout</div><h4>Light Fuel</h4><p>1 apple and 10 almonds, or 1 boiled egg and 1 fruit.</p><span class="calories">200 kcal</span><span class="protein">7 g protein</span></div>
+                <div class="meal-card"><div class="meal-time">Dinner</div><h4>Baked Fish &amp; Veg</h4><p>180 g white fish or tuna, steamed vegetables, 150 g boiled potato.</p><span class="calories">500 kcal</span><span class="protein">45 g protein</span></div>
+            </div>
+        </div>
+
+        <!-- Maintain -->
+        <div class="plan" id="plan-keep">
+            <p class="plan-total">Daily total: <b>about 2,400 kcal</b> | Protein: <b>about 150 g</b></p>
+            <div class="meal-plan-section">
+                <div class="meal-card"><div class="meal-time">Breakfast</div><h4>Oatmeal &amp; Eggs</h4><p>50 g oats, 1 scoop whey or 200 ml milk, 2 whole eggs, handful of berries.</p><span class="calories">550 kcal</span><span class="protein">40 g protein</span></div>
+                <div class="meal-card"><div class="meal-time">Snack</div><h4>Nuts &amp; Fruit</h4><p>A small handful of nuts and 1 piece of fruit.</p><span class="calories">300 kcal</span><span class="protein">8 g protein</span></div>
+                <div class="meal-card"><div class="meal-time">Lunch</div><h4>Grilled Chicken &amp; Rice</h4><p>200 g chicken or lean beef, 180 g cooked rice, steamed broccoli.</p><span class="calories">700 kcal</span><span class="protein">55 g protein</span></div>
+                <div class="meal-card"><div class="meal-time">Post-Workout</div><h4>Shake &amp; Banana</h4><p>1 scoop whey in water or milk with 1 banana.</p><span class="calories">250 kcal</span><span class="protein">28 g protein</span></div>
+                <div class="meal-card"><div class="meal-time">Dinner</div><h4>Salmon &amp; Sweet Potato</h4><p>180 g salmon or tuna, 200 g sweet potato, asparagus or greens.</p><span class="calories">600 kcal</span><span class="protein">42 g protein</span></div>
+            </div>
+        </div>
+
+        <!-- Local swaps -->
+        <h2 class="section-title">LOCAL <span>FOOD SWAPS</span></h2>
+        <p class="section-sub">You do not need expensive supplements. Everyday local foods work great.</p>
+        <div class="swap-grid">
+            <div class="swap-card"><h3>Shiro &amp; Misir (Lentils)</h3><p>Good plant protein and fiber. Use less oil, and pair with injera for carbs.</p></div>
+            <div class="swap-card"><h3>Teff Injera</h3><p>A solid carb source. Eat it around training, and watch the portion if cutting.</p></div>
+            <div class="swap-card"><h3>Eggs</h3><p>Cheap, complete protein. 3-4 boiled eggs a day fit almost any plan.</p></div>
+            <div class="swap-card"><h3>Lean Tibs &amp; Fish</h3><p>Choose lean cuts, ask for less oil, and add vegetables on the side.</p></div>
+            <div class="swap-card"><h3>Milk &amp; Yogurt (Ergo)</h3><p>An easy way to add protein and calories, great for building muscle.</p></div>
+            <div class="swap-card"><h3>Fasting Days</h3><p>On fasting days use shiro, lentils, chickpeas and beans as your protein.</p></div>
+        </div>
+
+        <!-- Tips -->
+        <h2 class="section-title">DAILY <span>HABITS</span></h2>
+        <div class="tips-grid">
+            <div class="tip-card"><i class='bx bx-water'></i><h3>Hydrate</h3><p>Drink 2.5-3.5 litres of water a day, more when it is hot or you train hard.</p></div>
+            <div class="tip-card"><i class='bx bx-moon'></i><h3>Sleep 7-9 Hours</h3><p>Muscle grows while you rest. Poor sleep raises hunger and slows recovery.</p></div>
+            <div class="tip-card"><i class='bx bx-dumbbell'></i><h3>Eat Around Training</h3><p>Have carbs and protein 1-2 hours before, and a protein meal within 2 hours after.</p></div>
+            <div class="tip-card"><i class='bx bx-time'></i><h3>Be Consistent</h3><p>Track your weight weekly. Change calories by 100-200 only if progress stalls for 2-3 weeks.</p></div>
+        </div>
+
+        <div class="diet-cta">
+            <h3>Need a Custom Plan?</h3>
+            <p>Our expert coaches can build a plan specifically for your weight, height and budget.</p>
+            <a href="Contact.html" class="diet-btn">Contact Nutritionist</a>
+        </div>
+
+        <p class="disclaimer">These plans are general guidance, not medical advice. If you have a health condition, are pregnant, or are under 18, speak to a doctor or dietitian first.</p>
+    </main>
+
+    <footer>
+        <div class="social">
+            <a href="#" class="ico"><i class='bx bxl-facebook-circle'></i></a>
+            <a href="#" class="ico"><i class='bx bxl-instagram'></i></a>
+            <a href="#" class="ico"><i class='bx bxl-twitter'></i></a>
+        </div>
+        <div class="copy">
+            <p>&copy; 2026 Royal Fitness | Nutrition Division</p>
+        </div>
+    </footer>
+
+    <script>
+        // ----- Meal plan tabs -----
+        document.querySelectorAll('.tab-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('on'); });
+                document.querySelectorAll('.plan').forEach(function (p) { p.classList.remove('on'); });
+                btn.classList.add('on');
+                document.getElementById('plan-' + btn.dataset.plan).classList.add('on');
+            });
+        });
+
+        // ----- Calorie & macro calculator (Mifflin-St Jeor) -----
+        document.getElementById('calcBtn').addEventListener('click', function () {
+            var sex = document.getElementById('sex').value;
+            var age = parseFloat(document.getElementById('age').value);
+            var w = parseFloat(document.getElementById('weight').value);
+            var h = parseFloat(document.getElementById('height').value);
+            var act = parseFloat(document.getElementById('activity').value);
+            var goal = document.getElementById('goal').value;
+            var err = document.getElementById('calcError');
+
+            if (!age || !w || !h || age < 14 || w < 30 || h < 120) {
+                err.textContent = 'Please enter a valid age, weight and height.';
+                return;
+            }
+            err.textContent = '';
+
+            var bmr = 10 * w + 6.25 * h - 5 * age + (sex === 'm' ? 5 : -161);
+            var tdee = bmr * act;
+            var cal, protPerKg, note;
+
+            if (goal === 'gain') {
+                cal = tdee * 1.10; protPerKg = 2.0;
+                note = 'About 10% above maintenance for slow, lean muscle gain (0.25-0.5 kg per week).';
+            } else if (goal === 'loss') {
+                cal = tdee * 0.80; protPerKg = 2.2;
+                var floor = sex === 'm' ? 1500 : 1200;
+                if (cal < floor) cal = floor;
+                note = 'About 20% below maintenance for steady fat loss (0.5 kg per week). High protein protects your muscle.';
+            } else {
+                cal = tdee; protPerKg = 1.8;
+                note = 'Calories to keep your current weight while training.';
+            }
+
+            cal = Math.round(cal / 10) * 10;
+            var protein = Math.round(w * protPerKg);
+            var fat = Math.round((cal * 0.25) / 9);
+            var carbs = Math.round((cal - protein * 4 - fat * 9) / 4);
+            if (carbs < 0) carbs = 0;
+
+            document.getElementById('rCal').textContent = cal.toLocaleString();
+            document.getElementById('rP').textContent = protein;
+            document.getElementById('rC').textContent = carbs;
+            document.getElementById('rF').textContent = fat;
+            document.getElementById('rNote').textContent = note;
+        });
+    </script>
+
+</body>
+</html>
